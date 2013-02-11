@@ -1,0 +1,10 @@
+//Modulo.java
+package pass;
+
+public class Modulo 
+{
+	public int modulo(int x, in y)
+	{
+		return x % y;
+	}
+}

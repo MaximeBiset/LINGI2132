@@ -1,0 +1,11 @@
+import java.lang.System;
+import java.lang.Integer;
+
+public class Primes 
+{
+	public static void main(String[] args)
+	{
+		int n = Integer.parseInt(args[0]);
+		System.out.println("Printing the "+n+" first primes numbers")
+	}
+}

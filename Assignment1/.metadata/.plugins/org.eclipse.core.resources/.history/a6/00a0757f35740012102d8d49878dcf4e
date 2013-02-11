@@ -1,0 +1,26 @@
+package junit;
+
+import pass.LeftShift;
+import junit.framework.TestCase;
+
+
+public class LeftShiftTest extends Testcase
+{
+	private LeftShift leftShift;
+	
+	protected void setUp()
+	{
+		super.setUp();
+		leftShift = new LeftShift();
+	}
+	
+	protected void tearDown()
+	{
+		super.tearDown();
+	}
+	
+	public void testLeftShift()
+	{
+		this.assertEquals(leftShift.leftShift(0x0001), 0x0010)
+	}
+}

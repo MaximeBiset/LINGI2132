@@ -1,0 +1,9 @@
+package pass;
+
+public class LeftShift
+{
+	public int leftShit(int x, int y)
+	{
+		return x << y;
+	}
+}

@@ -1,0 +1,10 @@
+package pass;
+
+public class Plus
+{
+	public int Plus(int x)
+	{
+		return +x;
+	}
+
+}

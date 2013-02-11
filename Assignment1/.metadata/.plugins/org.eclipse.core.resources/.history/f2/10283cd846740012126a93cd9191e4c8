@@ -1,0 +1,26 @@
+package junit;
+
+import junit.framework.TestCase;
+
+public class RightShiftTest extends TestCase
+{
+	private RightShift rightShift;
+	
+	protected void setUp()
+	{
+		super.setUp();
+		rightShift = new RightShift();
+	}
+	
+	protected void tearDown()
+	{
+		super.tearDown();
+	}
+	
+	public void testRightShift()
+	{
+		this.assertEquals(rightShift.rightShift(42, 1), 21);
+		this.assertEquals(rightShift.rightShift(43, 1), 21);
+	}
+
+}
