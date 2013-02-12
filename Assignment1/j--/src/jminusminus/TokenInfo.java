@@ -15,7 +15,7 @@ enum TokenKind {
             "class"), DIV("/"), ELSE("else"), EXTENDS("extends"), FALSE("false"), IF("if"), IMPORT(
             "import"), INSTANCEOF("instanceof"), INT("int"), NEW("new"), NULL(
             "null"), PACKAGE("package"), PRIVATE("private"), PROTECTED(
-            "protected"), PUBLIC("public"), RETURN("return"), STATIC("static"), SUPER(
+            "protected"), PUBLIC("public"), LT("<"), RETURN("return"), STATIC("static"), SUPER(
             "super"), THIS("this"), TRUE("true"), VOID("void"), WHILE("while"), PLUS(
             "+"), ASSIGN("="), DEC("--"), EQUAL("=="), GT(">"), INC("++"), LAND(
             "&&"), LE("<="), LNOT("!"), MINUS("-"), MOD("%"), PLUS_ASSIGN("+="), STAR("*"), LPAREN(

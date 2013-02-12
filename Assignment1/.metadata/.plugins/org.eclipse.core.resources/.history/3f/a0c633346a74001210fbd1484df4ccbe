@@ -1,0 +1,27 @@
+package junit;
+
+import pass.LesserThan;
+import junit.framework.TestCase;
+
+public class LesserThanTest extends TestCase
+{
+	private LesserThan lesserThan;
+	
+	protected void setUp()
+	{
+		super.setUp();
+		lesserThan = new LesserThan();
+	}
+	
+	protected void tearDown()
+	{
+		super.tearDown();
+	}
+	
+	public void testLesserThan()
+	{
+		
+	}
+	
+
+}

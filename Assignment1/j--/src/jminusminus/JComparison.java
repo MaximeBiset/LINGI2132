@@ -140,3 +140,39 @@ class JLessEqualOp extends JComparison {
     }
 
 }
+
+/**
+ * The AST node for a less than expression. 
+ */
+
+class JLessOp extends JComparison
+{
+	/**
+	 * Construct an AST node given its line number, the lhs and the rhs operand.
+	 * 
+	 * @param line the line in which occurs the less expresion in the source file.
+	 * @param lhs lhs operand.
+	 * @param rhs rhs operand.
+	 */
+	
+	protected JLessOp(int line, JExpression lhs, JExpression rhs) 
+	{
+		super(line, "<", lhs, rhs);
+	}
+	
+	/**
+	 *  Branching code generation for < operation.
+	 *  
+	 *  @param output the code emitter.
+	 *  @param targetLabel target for generated branch instruction
+	 *  @param onTrue should we branch on true ?
+	 */
+	 
+	public void codegen(CLEmitter output, String targetLabel, boolean onTrue)
+	{
+		lhs.codegen(output);
+		rhs.codegen(output);
+		output.addBranchInstruction(onTrue ? IF_ICMPLT : IF_ICMPGE, targetLabel);
+	}
+	
+}
