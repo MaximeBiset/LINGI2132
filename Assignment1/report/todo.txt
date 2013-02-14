@@ -1,3 +1,0 @@
-CHECK PRIORITY OF OPERATIONS !!!! (with tests)
-UNARY expression for >> << ?
-MOVING unary + to addidiveExpression in Parser.java ?

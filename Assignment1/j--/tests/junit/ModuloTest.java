@@ -2,6 +2,7 @@ package junit;
 
 import junit.framework.TestCase;
 import pass.Modulo;
+import jminusminus.Main;
 
 public class ModuloTest extends TestCase
 {
@@ -25,5 +26,13 @@ public class ModuloTest extends TestCase
 		this.assertEquals(modulo.modulo(1, 42), 1);
 		this.assertEquals(modulo.priorityLeft(1, 1, 42), 2);
 		this.assertEquals(modulo.priorityRight(1, 42, 1), 2);
+		try {
+			modulo.modulo(42, 0);
+			fail();
+		}
+		catch(Exception e) {
+			assertEquals("/ by zero", e.getMessage());
+		}
 	}
+	
 }

@@ -25,6 +25,14 @@ public class DivisionTest extends TestCase
 		this.assertEquals(division.divide(128, 3), 42);
 		this.assertEquals(division.priorityLeft(3, 5, 5), 4);
 		this.assertEquals(division.priorityRight(5, 5, 3), 4);
+		try {
+			division.divide(42, 0);
+			fail();
+		}
+		catch (Exception e) {
+			assertEquals("/ by zero", e.getMessage());
+		}
+		
 	}
 
 }
