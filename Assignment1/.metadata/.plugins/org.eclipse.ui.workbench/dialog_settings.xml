@@ -4,10 +4,25 @@
 		<item value="0" key="DIALOG_Y_ORIGIN"/>
 		<item value="295" key="DIALOG_X_ORIGIN"/>
 	</section>
+<<<<<<< HEAD
 	<section name="NewWizardAction">
 		<item value="org.eclipse.ant.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
 		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
 			<item value="org.eclipse.jdt.ui.java"/>
+=======
+	<section name="ZipFileExportWizard">
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_CREATE_STRUCTURE_ID"/>
+		<item value="true" key="WizardZipFileResourceExportPage1.STORE_COMPRESS_CONTENTS_ID"/>
+		<list key="WizardZipFileResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/xavier/sinf21ms/LINGI2132/j--_gr_16.zip"/>
+			<item value="j--_gr_16.zip"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item value="org.eclipse.ui.wizards.export.ZipFile" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
+		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+>>>>>>> ea60d97492546020255d33baf48433b267ffd4d2
 		</list>
 	</section>
 </section>

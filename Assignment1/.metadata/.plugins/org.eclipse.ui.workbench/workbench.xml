@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <workbench progressCount="31" version="2.0">
+=======
+<workbench progressCount="20" version="2.0">
+>>>>>>> ea60d97492546020255d33baf48433b267ffd4d2
 <workbenchAdvisor/>
 <window height="740" maximized="true" width="679" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
@@ -36,7 +40,55 @@
 </folder>
 </info>
 </editorArea>
+<<<<<<< HEAD
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DivisionTest.java" partName="DivisionTest.java" path="/Users/Julien/Documents/workspace/LINGI2132/Assignment1/j--/tests/junit/DivisionTest.java" title="DivisionTest.java" tooltip="j--/tests/junit/DivisionTest.java" workbook="DefaultEditorWorkbook">
+=======
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Scanner.java" partName="Scanner.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/Scanner.java" title="Scanner.java" tooltip="j--/src/jminusminus/Scanner.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/Scanner.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6044" selectionTopPixel="2703"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="lexicalgrammar" partName="lexicalgrammar" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/lexicalgrammar" title="lexicalgrammar" tooltip="j--/lexicalgrammar" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/lexicalgrammar"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="530"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" partName="Parser.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/Parser.java" title="Parser.java" tooltip="j--/src/jminusminus/Parser.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/Parser.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="31420" selectionTopPixel="21037"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JComparison.java" partName="JComparison.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/JComparison.java" title="JComparison.java" tooltip="j--/src/jminusminus/JComparison.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JComparison.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4160" selectionTopPixel="2115"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThanTest.java" partName="LesserThanTest.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/LesserThanTest.java" title="LesserThanTest.java" tooltip="j--/tests/junit/LesserThanTest.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/LesserThanTest.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="491" selectionTopPixel="49"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThan.java" partName="LesserThan.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/pass/LesserThan.java" title="LesserThan.java" tooltip="j--/tests/pass/LesserThan.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/pass/LesserThan.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="50" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Factorial.java" partName="Factorial.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Factorial.java" title="Factorial.java" tooltip="j--/tests/spim/Factorial.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Factorial.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="244"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fibonacci.java" partName="Fibonacci.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Fibonacci.java" title="Fibonacci.java" tooltip="j--/tests/spim/Fibonacci.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Fibonacci.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Formals.java" partName="Formals.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Formals.java" title="Formals.java" tooltip="j--/tests/spim/Formals.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Formals.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="139"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GCD.java" partName="GCD.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/GCD.java" title="GCD.java" tooltip="j--/tests/spim/GCD.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/GCD.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="259"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloWorld.java" partName="HelloWorld.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/HelloWorld.java" title="HelloWorld.java" tooltip="j--/tests/spim/HelloWorld.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/HelloWorld.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DivisionTest.java" partName="DivisionTest.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/DivisionTest.java" title="DivisionTest.java" tooltip="j--/tests/junit/DivisionTest.java" workbook="DefaultEditorWorkbook">
+>>>>>>> ea60d97492546020255d33baf48433b267ffd4d2
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/DivisionTest.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="496" selectionTopPixel="0"/>
 </editor>
@@ -263,12 +315,15 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<<<<<<< HEAD
 <trimArea IMemento.internal.id="16384">
 <trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
 <trimItem IMemento.internal.id="right"/>
 </trimArea>
+=======
+>>>>>>> ea60d97492546020255d33baf48433b267ffd4d2
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>

@@ -8,7 +8,7 @@ public class Primes
     // @param n the upper value
     // @return an array containing the resulting primes numbers
        
-    public static int[] compute(int n)
+    public static int[] primes(int n)
     {
         int[] marks = new int[n-1];
         int i = 0;
@@ -29,7 +29,7 @@ public class Primes
             marks = mark(marks, p);
             p += 1;
         }
-        //Compute the # of primes number to return
+        //primes the # of primes number to return
         i = 0;
         j = 0;
         while(i < n - 1) {
@@ -80,7 +80,7 @@ public class Primes
             System.out.println("Usage : java Primes n");
         else {
             int n = Integer.parseInt(args[0]);
-            int[] a = compute(n);
+            int[] a = primes(n);
             System.out.println("The primes numbers <= "+n+" are :");
             int i = 1;
             System.out.print("["+a[0]);
