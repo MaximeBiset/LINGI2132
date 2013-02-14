@@ -1,2 +1,3 @@
-# Eclipse config
-Assignment1/.metadata
+*.class
+*.swp
+Assignment1/.metadata/*
