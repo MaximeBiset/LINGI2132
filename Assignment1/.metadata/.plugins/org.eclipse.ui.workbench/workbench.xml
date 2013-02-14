@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="17" version="2.0">
+<workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
 <window height="741" maximized="true" width="669" x="0" y="27">
 <fastViewData fastViewLocation="1024"/>
@@ -60,7 +60,7 @@
 </editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JComparison.java" partName="JComparison.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/JComparison.java" title="JComparison.java" tooltip="j--/src/jminusminus/JComparison.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JComparison.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4804" selectionTopPixel="2310"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4160" selectionTopPixel="2115"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThanTest.java" partName="LesserThanTest.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/LesserThanTest.java" title="LesserThanTest.java" tooltip="j--/tests/junit/LesserThanTest.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/LesserThanTest.java"/>
@@ -459,13 +459,6 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
-<trimArea IMemento.internal.id="16384">
-<trimItem IMemento.internal.id="left"/>
-</trimArea>
-<trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
-<trimItem IMemento.internal.id="right"/>
-</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
