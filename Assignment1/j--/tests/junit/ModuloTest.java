@@ -23,6 +23,7 @@ public class ModuloTest extends TestCase
 		this.assertEquals(modulo.modulo(128, 43), 42);
 		this.assertEquals(modulo.modulo(6, 2), 0);
 		this.assertEquals(modulo.modulo(1, 42), 1);
-		//TODO : ADDING SOME MORE TEST
+		this.assertEquals(modulo.priorityLeft(1, 1, 42), 2);
+		this.assertEquals(modulo.priorityRight(1, 42, 1), 2);
 	}
 }

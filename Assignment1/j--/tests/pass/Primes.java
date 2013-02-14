@@ -1,3 +1,5 @@
+package pass;
+
 import java.lang.System;
 import java.lang.Integer;
 import java.util.ArrayList;
@@ -9,13 +11,15 @@ public class Primes
     // @return an array containing the resulting primes numbers
        
     public static int[] primes(int n)
-    {
-        int[] marks = new int[n-1];
+    {   
+        if( n < 0)
+            return new int[] {};
+        int[] marks = new int[n+1];
         int i = 0;
         int p = 2;
         int j = 0;
         //init
-        while(i < n - 1) {
+        while(i < n + 1 ) {
             if(i == 0)
                 marks[i] = 1;
             else if(i == 1)
@@ -32,7 +36,7 @@ public class Primes
         //primes the # of primes number to return
         i = 0;
         j = 0;
-        while(i < n - 1) {
+        while(i < n + 1) {
             if(marks[i] == 0)
                 j += 1;
             i += 1;
@@ -81,14 +85,18 @@ public class Primes
         else {
             int n = Integer.parseInt(args[0]);
             int[] a = primes(n);
-            System.out.println("The primes numbers <= "+n+" are :");
-            int i = 1;
-            System.out.print("["+a[0]);
-            while(i < a.length) {
-                System.out.print(", "+a[i]);
-                i += 1;
+            if(a.length > 0) {
+                System.out.println("The primes numbers <= "+n+" are :");
+                int i = 1;
+                System.out.print("["+a[0]);
+                while(i < a.length) {
+                    System.out.print(", "+a[i]);
+                    i += 1;
+                }
+                System.out.print("]\n");
             }
-            System.out.print("]\n");
+            else 
+                System.out.println("there are no primes numbers <= "+n);
         }
     }
 }

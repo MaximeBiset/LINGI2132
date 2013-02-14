@@ -8,4 +8,14 @@ public class Modulo
 	{
 		return x % y;
 	}
+	
+	public int priorityLeft(int x, int y, int z)
+	{
+		return x + y % z;
+	}
+	
+	public int priorityRight(int x, int y, int z)
+	{
+		return x % y + z;
+	}
 }

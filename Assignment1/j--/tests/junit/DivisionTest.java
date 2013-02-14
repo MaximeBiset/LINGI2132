@@ -23,6 +23,8 @@ public class DivisionTest extends TestCase
 		this.assertEquals(division.divide(0, 42), 0);
 		this.assertEquals(division.divide(42, 1), 42);
 		this.assertEquals(division.divide(128, 3), 42);
+		this.assertEquals(division.priorityLeft(3, 5, 5), 4);
+		this.assertEquals(division.priorityRight(5, 5, 3), 4);
 	}
 
 }
