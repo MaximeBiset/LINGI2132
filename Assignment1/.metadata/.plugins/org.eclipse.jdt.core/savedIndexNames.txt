@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/Users/Julien/Documents/workspace/LINGI2132/Assignment1/.metadata/.plugins/org.eclipse.jdt.core
+3000285004.index
+4188022808.index
