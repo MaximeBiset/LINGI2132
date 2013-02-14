@@ -1,0 +1,35 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Xavier Crochet, Julien De Coster}
+\title{INGI2132 \\ Assignement 1 Report}
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+We implemented first the division, the unary plus and the modulo. We wrote likewise the program \emph{primes.java} with the Eratosthenes algorithm. We used jUnit tests to test both the operators and the j-- program.
+
+\section{Development}
+
+The main choice we did was on the data structure of the \emph{primes.java} program. We analyzed two possibilies :
+
+\begin{enumerate}
+\item A structure with two lists. The first list contains integers from 1 to \emph{n}. The second list contains the marks. Both lists are equals in size in order to match each element from the first list to a mark from the second one. An element is marked as 0 if it is potentially a prime number or as 1 if it is identified as a multiple of a previous number of the list. We use the term \emph{potentially} because all the elements of the mark list are initialized at 0.
+
+\item A structure with an unique linked list. Here the strategy is to remove every element identified as a multiple of a previous number. The benefit of this method is clear : we don't have to visit elements wich are not relevant because already identied.
+\end{enumerate}
+
+We choose the first strategy mainly for performance. Accessing elements and remove them from a linked list is costly. Our mesures showed that the first strategy took more or less ten times less time with wide values (e.g. 50 000).
+
+\section{Testing}
+
+We tested both the division, plus and modulo with priorities and the j-- program.
+
+
+
+\end{document}
