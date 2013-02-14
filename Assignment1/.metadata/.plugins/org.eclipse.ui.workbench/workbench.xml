@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="17" version="2.0">
+<workbench progressCount="31" version="2.0">
 <workbenchAdvisor/>
-<window height="741" maximized="true" width="669" x="0" y="27">
+<window height="740" maximized="true" width="679" x="0" y="0">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
 <coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="146" y="36"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="136" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="132" y="36"/>
-<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="86" y="36"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="86" y="36"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="138" y="36"/>
-<coolItem id="group.nav" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="200" y="36"/>
-<coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.ant.ui.internal.editor.AntEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="100" y="22"/>
 <coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="62" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="106" y="22"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="120" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="152" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -30,73 +32,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-<part id="5"/>
-<part id="6"/>
-<part id="7"/>
-<part id="8"/>
-<part id="9"/>
-<part id="10"/>
-<part id="11"/>
-<part id="12"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Scanner.java" partName="Scanner.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/Scanner.java" title="Scanner.java" tooltip="j--/src/jminusminus/Scanner.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/Scanner.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="6044" selectionTopPixel="2703"/>
-</editor>
-<editor id="org.eclipse.ui.DefaultTextEditor" name="lexicalgrammar" partName="lexicalgrammar" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/lexicalgrammar" title="lexicalgrammar" tooltip="j--/lexicalgrammar" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/lexicalgrammar"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="530"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" partName="Parser.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/Parser.java" title="Parser.java" tooltip="j--/src/jminusminus/Parser.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/Parser.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="31420" selectionTopPixel="21037"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JComparison.java" partName="JComparison.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/src/jminusminus/JComparison.java" title="JComparison.java" tooltip="j--/src/jminusminus/JComparison.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JComparison.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4804" selectionTopPixel="2310"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThanTest.java" partName="LesserThanTest.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/LesserThanTest.java" title="LesserThanTest.java" tooltip="j--/tests/junit/LesserThanTest.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/LesserThanTest.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="491" selectionTopPixel="49"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThan.java" partName="LesserThan.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/pass/LesserThan.java" title="LesserThan.java" tooltip="j--/tests/pass/LesserThan.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/pass/LesserThan.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="50" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Factorial.java" partName="Factorial.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Factorial.java" title="Factorial.java" tooltip="j--/tests/spim/Factorial.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Factorial.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="244"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fibonacci.java" partName="Fibonacci.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Fibonacci.java" title="Fibonacci.java" tooltip="j--/tests/spim/Fibonacci.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Fibonacci.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Formals.java" partName="Formals.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/Formals.java" title="Formals.java" tooltip="j--/tests/spim/Formals.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/Formals.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="139"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GCD.java" partName="GCD.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/GCD.java" title="GCD.java" tooltip="j--/tests/spim/GCD.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/GCD.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="259"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloWorld.java" partName="HelloWorld.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/spim/HelloWorld.java" title="HelloWorld.java" tooltip="j--/tests/spim/HelloWorld.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/spim/HelloWorld.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DivisionTest.java" partName="DivisionTest.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/DivisionTest.java" title="DivisionTest.java" tooltip="j--/tests/junit/DivisionTest.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DivisionTest.java" partName="DivisionTest.java" path="/Users/Julien/Documents/workspace/LINGI2132/Assignment1/j--/tests/junit/DivisionTest.java" title="DivisionTest.java" tooltip="j--/tests/junit/DivisionTest.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/DivisionTest.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="467" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JMinusMinusTestRunner.java" partName="JMinusMinusTestRunner.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/j--/tests/junit/JMinusMinusTestRunner.java" title="JMinusMinusTestRunner.java" tooltip="j--/tests/junit/JMinusMinusTestRunner.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/junit/JMinusMinusTestRunner.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="954" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="496" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -110,7 +52,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (100 of 8263 items)"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="105" org.eclipse.ui.ide.markerType="882" org.eclipse.ui.ide.pathField="140" org.eclipse.ui.ide.resourceField="105" org.eclipse.ui.ide.severityAndDescriptionField="350"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -120,6 +62,9 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1360516261412">
 <customFilters userDefinedPatternsEnabled="false">
@@ -127,7 +72,6 @@
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
-<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
@@ -143,14 +87,12 @@
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
-<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
+<child filterId="org.eclipse.m2e.MavenModuleFilter" isEnabled="false"/>
 </xmlDefinedFilters>
 </customFilters>
 </viewState>
-</view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
 </view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
@@ -162,7 +104,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -180,6 +122,11 @@
 <alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
 <alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.egit.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
 <show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
 <show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
 <show_view_action id="org.eclipse.jdt.ui.SourceView"/>
@@ -212,14 +159,23 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
-<view id="org.eclipse.ui.views.ProblemView"/>
-<view id="org.eclipse.jdt.ui.JavadocView"/>
-<view id="org.eclipse.jdt.ui.SourceView"/>
-<view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
-<view id="org.eclipse.ui.views.ContentOutline"/>
-<fastViewBars/>
+<fastViewBars>
+<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
+<view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
+<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2972583"/>
+<view id="org.eclipse.search.ui.views.SearchView" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+<fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
+<fastViews>
+<view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
@@ -244,31 +200,23 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.24950495" ratioLeft="252" ratioRight="758" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.74916387" ratioLeft="448" ratioRight="150" relationship="4" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
-<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
-<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-<part id="1"/>
-<part id="2"/>
-<part id="3"/>
-<part id="4"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.74934036" ratioLeft="568" ratioRight="190" relationship="2" relative="org.eclipse.ui.editorss">
-<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
-<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 </mainWindow>
@@ -278,180 +226,36 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/LeftShiftTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/LeftShift.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/RightShift.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/RightShiftTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JBinaryExpression.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/LeftShiftTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/RightShiftTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/Parser.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/clemitter/GenFactorial.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/clemitter/Primes.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/clemitter/GenFactorial.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/Scanner.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" path="/j--/lexicalgrammar"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/Parser.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JComparison.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/LesserThanTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/LesserThan.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/spim/Factorial.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/spim/Fibonacci.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/spim/Formals.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/spim/GCD.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/spim/HelloWorld.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/Division.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/DivisionTest.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/LesserThanTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/JMinusMinusTest.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/JMinusMinusTestRunner.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/junit/DivisionTest.java"/>
 </editors>
-<item historyLabel="LeftShift.java" index="1">
-<position info="not_deleted" x="78" y="0"/>
-</item>
-<item historyLabel="RightShift.java" index="2">
+<item historyLabel="JComparison.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="LeftShift.java" index="1">
-<position info="not_deleted" x="78" y="0"/>
-</item>
-<item historyLabel="RightShift.java" index="2">
+<item historyLabel="Division.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="RightShiftTest.java" index="3">
+<item historyLabel="DivisionTest.java" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="JBinaryExpression.java" index="4">
-<position info="not_deleted" x="12780" y="0"/>
-</item>
-<item historyLabel="LeftShiftTest.java" index="0">
-<position info="not_deleted" x="400" y="0"/>
-</item>
-<item historyLabel="JBinaryExpression.java" index="4">
-<position info="not_deleted" x="12780" y="0"/>
-</item>
-<item historyLabel="LeftShiftTest.java" index="5">
-<position info="not_deleted" x="400" y="0"/>
-</item>
-<item historyLabel="RightShiftTest.java" index="6">
+<item historyLabel="JMinusMinusTest.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="7">
-<position info="not_deleted" x="33428" y="37"/>
+<item historyLabel="JMinusMinusTestRunner.java" index="4">
+<position info="not_deleted" x="1116" y="0"/>
 </item>
-<item historyLabel="RightShiftTest.java" index="6">
+<item historyLabel="DivisionTest.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="7">
-<position info="not_deleted" x="33428" y="37"/>
+<item historyLabel="JMinusMinusTestRunner.java" index="4">
+<position info="not_deleted" x="1055" y="0"/>
 </item>
-<item historyLabel="GenFactorial.java" index="8">
+<item active="true" historyLabel="DivisionTest.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Primes.java" index="9">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="GenFactorial.java" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Primes.java" index="9">
-<position info="not_deleted" x="73" y="0"/>
-</item>
-<item historyLabel="Primes.java" index="9">
-<position info="not_deleted" x="107" y="0"/>
-</item>
-<item historyLabel="Primes.java" index="9">
-<position info="not_deleted" x="219" y="0"/>
-</item>
-<item historyLabel="GenFactorial.java" index="10">
-<position info="not_deleted" x="497" y="0"/>
-</item>
-<item historyLabel="Scanner.java" index="11">
-<position info="not_deleted" x="6092" y="0"/>
-</item>
-<item historyLabel="lexicalgrammar" index="12">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Scanner.java" index="11">
-<position info="not_deleted" x="6044" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="4379" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="3982" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="31683" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="31697" y="0"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="15">
-<position info="not_deleted" x="359" y="56"/>
-</item>
-<item historyLabel="LesserThan.java" index="16">
-<position info="not_deleted" x="50" y="0"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="15">
-<position info="not_deleted" x="199" y="16"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="15">
-<position info="not_deleted" x="253" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="13">
-<position info="not_deleted" x="31420" y="0"/>
-</item>
-<item historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="3982" y="0"/>
-</item>
-<item historyLabel="Factorial.java" index="17">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Fibonacci.java" index="18">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Formals.java" index="19">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="GCD.java" index="20">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="HelloWorld.java" index="21">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="DivisionTest.java" index="22">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="23">
-<position info="not_deleted" x="253" y="0"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="23">
-<position info="not_deleted" x="276" y="0"/>
-</item>
-<item historyLabel="DivisionTest.java" index="22">
-<position info="not_deleted" x="467" y="0"/>
-</item>
-<item historyLabel="LesserThanTest.java" index="23">
-<position info="not_deleted" x="491" y="0"/>
-</item>
-<item active="true" historyLabel="JComparison.java" index="14">
-<position info="not_deleted" x="2863" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -463,64 +267,65 @@
 <trimItem IMemento.internal.id="left"/>
 </trimArea>
 <trimArea IMemento.internal.id="131072">
-<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
 <trimItem IMemento.internal.id="right"/>
 </trimArea>
 <trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
 <trimArea IMemento.internal.id="1024">
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JMinusMinusTestRunner.java" tooltip="j--/tests/junit/JMinusMinusTestRunner.java">
-<persistable path="/j--/tests/junit/JMinusMinusTestRunner.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DivisionTest.java" tooltip="j--/tests/junit/DivisionTest.java">
 <persistable path="/j--/tests/junit/DivisionTest.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="HelloWorld.java" tooltip="j--/tests/spim/HelloWorld.java">
-<persistable path="/j--/tests/spim/HelloWorld.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JMinusMinusTestRunner.java" tooltip="j--/tests/junit/JMinusMinusTestRunner.java">
+<persistable path="/j--/tests/junit/JMinusMinusTestRunner.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GCD.java" tooltip="j--/tests/spim/GCD.java">
-<persistable path="/j--/tests/spim/GCD.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JMinusMinusTest.java" tooltip="j--/tests/junit/JMinusMinusTest.java">
+<persistable path="/j--/tests/junit/JMinusMinusTest.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Formals.java" tooltip="j--/tests/spim/Formals.java">
-<persistable path="/j--/tests/spim/Formals.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Fibonacci.java" tooltip="j--/tests/spim/Fibonacci.java">
-<persistable path="/j--/tests/spim/Fibonacci.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Factorial.java" tooltip="j--/tests/spim/Factorial.java">
-<persistable path="/j--/tests/spim/Factorial.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThan.java" tooltip="j--/tests/pass/LesserThan.java">
-<persistable path="/j--/tests/pass/LesserThan.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LesserThanTest.java" tooltip="j--/tests/junit/LesserThanTest.java">
-<persistable path="/j--/tests/junit/LesserThanTest.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Division.java" tooltip="j--/tests/pass/Division.java">
+<persistable path="/j--/tests/pass/Division.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JComparison.java" tooltip="j--/src/jminusminus/JComparison.java">
 <persistable path="/j--/src/jminusminus/JComparison.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" tooltip="j--/src/jminusminus/Parser.java">
-<persistable path="/j--/src/jminusminus/Parser.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="lexicalgrammar" tooltip="j--/lexicalgrammar">
-<persistable path="/j--/lexicalgrammar"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Scanner.java" tooltip="j--/src/jminusminus/Scanner.java">
-<persistable path="/j--/src/jminusminus/Scanner.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Primes.java" tooltip="j--/tests/clemitter/Primes.java">
 <persistable path="/j--/tests/clemitter/Primes.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="GenFactorial.java" tooltip="j--/tests/clemitter/GenFactorial.java">
 <persistable path="/j--/tests/clemitter/GenFactorial.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JBinaryExpression.java" tooltip="j--/src/jminusminus/JBinaryExpression.java">
+<persistable path="/j--/src/jminusminus/JBinaryExpression.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" tooltip="j--/src/jminusminus/Parser.java">
+<persistable path="/j--/src/jminusminus/Parser.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Scanner.java" tooltip="j--/src/jminusminus/Scanner.java">
+<persistable path="/j--/src/jminusminus/Scanner.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RightShiftTest.java" tooltip="j--/tests/junit/RightShiftTest.java">
+<persistable path="/j--/tests/junit/RightShiftTest.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RightShift.java" tooltip="j--/tests/pass/RightShift.java">
+<persistable path="/j--/tests/pass/RightShift.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LeftShift.java" tooltip="j--/tests/pass/LeftShift.java">
+<persistable path="/j--/tests/pass/LeftShift.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Plus.java" tooltip="j--/tests/pass/Plus.java">
+<persistable path="/j--/tests/pass/Plus.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LeftShiftTest.java" tooltip="j--/tests/junit/LeftShiftTest.java">
+<persistable path="/j--/tests/junit/LeftShiftTest.java"/>
 </file>
 </mruList>
 </workbench>
