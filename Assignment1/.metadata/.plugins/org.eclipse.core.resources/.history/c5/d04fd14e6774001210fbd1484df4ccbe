@@ -1,9 +1,0 @@
-package pass;
-
-public class Minus 
-{
-	boolean Minus(int x, int y)
-	{
-		return x < y;
-	}
-}

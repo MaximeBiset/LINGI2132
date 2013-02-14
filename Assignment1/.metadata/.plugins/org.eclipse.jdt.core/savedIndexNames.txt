@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+/home/xavier/Dev/LINGI2132/lingi2132/Assignment1/.metadata/.plugins/org.eclipse.jdt.core
-1309153707.index
-4188022808.index
