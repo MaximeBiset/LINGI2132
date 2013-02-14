@@ -10,37 +10,40 @@ public class Primes
        
     public static int[] compute(int n)
     {
-        int[] a = new int[n-1];
         int[] marks = new int[n-1];
         int i = 0;
         int p = 2;
-        int l = 0;
         int j = 0;
         //init
         while(i < n - 1) {
-            a[i] = i+2;
-            marks[i] = 0;
+            if(i == 0)
+                marks[i] = 1;
+            else if(i == 1)
+                marks[i] = 1;
+            else 
+                marks[i] = 0;
             i += 1; 
         }
-        //Mark multiples of p
+        //Mark multiples of p for each p < n
         while(p <= n) {
-            marks = mark(a, marks, p);
+            marks = mark(marks, p);
             p += 1;
         }
-        //Compute the size of primes number to return
+        //Compute the # of primes number to return
         i = 0;
+        j = 0;
         while(i < n - 1) {
             if(marks[i] == 0)
-                l += 1;
+                j += 1;
             i += 1;
         }
         //Build the primes tab
-        int[] result = new int[l];
+        int[] result = new int[j];
         i = 0;
         j = 0;
         while(i < marks.length) {
             if(marks[i] == 0) {
-                result[j] = a[i];
+                result[j] = i;
                 j += 1;
             }
             i += 1;
@@ -48,19 +51,18 @@ public class Primes
         return result;
     }
 
-    // Marks the multiples of p presents in the array a. 
-    // For 2<i<n, if i*p == a[i] then marks[j] = 1 
+    // Marks the multiples of p 
+    // For j : 2 <= j < N, if j * p == i then marks[i] = 1 
     //     
-    // @param a the array containing the numbers
-    // @param marks the array containing the marking of the values inside a.
+    // @param marks the array containing the corresponding marks.
     // @param p the value to test
     
-    public static int[] mark(int[] a, int[] marks, int p)
+    public static int[] mark(int[] marks, int p)
     {   
         int i = 0;
         int value = 2 * p;
-        while(i < a.length) {
-            if(value == a[i]) {
+        while(i < marks.length) {
+            if(value == i) {
                 marks[i] = 1;
                 value = value + p;
             }
@@ -80,11 +82,13 @@ public class Primes
             int n = Integer.parseInt(args[0]);
             int[] a = compute(n);
             System.out.println("The primes numbers <= "+n+" are :");
-            int i = 0;
+            int i = 1;
+            System.out.print("["+a[0]);
             while(i < a.length) {
-                System.out.println(a[i]);
+                System.out.print(", "+a[i]);
                 i += 1;
             }
+            System.out.print("]\n");
         }
     }
 }
