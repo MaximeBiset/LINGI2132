@@ -1,8 +1,0 @@
-package junit;
-
-import pass.LesserThan;
-import java.framework.TestCase;
-
-public class LesserThanTest {
-
-}
