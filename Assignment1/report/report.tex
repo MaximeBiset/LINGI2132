@@ -12,11 +12,14 @@
 \maketitle
 
 \section{Introduction}
-
-We implemented first the division, the unary plus and the modulo. We wrote likewise the program \emph{primes.java} with the Eratosthenes algorithm. We used jUnit tests to test both the operators and the j-- program.
+The goal of this mission was to add some feature into the j-- langage. We implemented first the division, the unary plus and the modulo. We wrote likewise the program \emph{primes.java} with the Eratosthenes algorithm. We used jUnit tests to test both the operators and the j-- program. Because we missread the assignment instruction, we also implement the left and right shift binary operators. 
 
 \section{Development}
+\subsection{Operators}
 
+To implements the operators, we simply follow the instruction in the book, read the A-B-C-D appendix of the book and inspire us from the already implemented classes. 
+
+\subsection{Primes}
 The main choice we did was on the data structure of the \emph{primes.java} program. We analyzed two possibilies :
 
 \begin{enumerate}
@@ -26,6 +29,8 @@ The main choice we did was on the data structure of the \emph{primes.java} progr
 \end{enumerate}
 
 We choose the first strategy mainly for performance. Accessing elements and remove them from a linked list is costly. Our mesures showed that the first strategy took more or less ten times less time with wide values (e.g. 50 000).
+
+In addition to the division, plus and modulo operators when had to implement the less one. We needed this operator for the \emph{primes.java} program. The interesting thing about this operator was that we had to be carefull about the scanner. Because a \emph{<} symbol can be followed by another \emph{<} or a \emph{=} symbol for instance. This was easily resolved by a \emph{if ... else ...} bloc.
 
 \section{Testing}
 \subsection{Test strategy for the operators}

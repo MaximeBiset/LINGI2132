@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.16)  15 FEB 2013 12:20
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.1.16)  15 FEB 2013 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -400,31 +400,31 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (32.77077pt too wide) in paragraph at lines 65--66
+Overfull \hbox (32.77077pt too wide) in paragraph at lines 70--71
 []\T1/cmr/m/n/10 We try to think dif-fe-rently. We try to re-mem-ber what the c
 ourse LINGI1122(\T1/cmr/m/it/10 Methode
  []
 
-[2] (./report.aux) ) 
+[2] [3] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  3857 strings out of 494993
  46204 string characters out of 3180573
- 102282 words of memory out of 3000000
+ 103282 words of memory out of 3000000
  7038 multiletter control sequences out of 15000+200000
  14361 words of font info for 40 fonts, out of 3000000 for 9000
  36 hyphenation exceptions out of 8191
  27i,6n,32p,556b,962s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1
-.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fo
-nts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
-1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/
-share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
-Output written on report.pdf (2 pages, 125700 bytes).
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-supe
+r-t1.enc}</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/
+share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
+sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></
+usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb>
+Output written on report.pdf (3 pages, 127545 bytes).
 PDF statistics:
- 40 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 43 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
