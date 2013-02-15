@@ -12,12 +12,12 @@
 \maketitle
 
 \section{Introduction}
-The goal of this mission was to add some feature into the j-- langage. We implemented first the division, the unary plus and the modulo. We wrote likewise the program \emph{primes.java} with the Eratosthenes algorithm. We used jUnit tests to test both the operators and the j-- program. Because we missread the assignment instruction, we also implement the left and right shift binary operators. 
+The goal of this mission was to add some features into the j-- langage. We implemented first the division, the unary plus and the modulo. We wrote likewise the program \emph{primes.java} with the Eratosthenes algorithm. We used jUnit tests to test both the operators and the j-- program. Because we missread the assignment instruction, we also implement the left and right shift binary operators. 
 
 \section{Development}
 \subsection{Operators}
 
-To implements the operators, we simply follow the instruction in the book, read the A-B-C-D appendix of the book and inspire us from the already implemented classes. 
+To implements the operators, we simply follow the instruction in the book, read the A-B-C-D appendix and inspire us from the already implemented classes. 
 
 \subsection{Primes}
 The main choice we did was on the data structure of the \emph{primes.java} program. We analyzed two possibilies :
@@ -35,7 +35,7 @@ In addition to the division, plus and modulo operators when had to implement the
 \section{Testing}
 \subsection{Test strategy for the operators}
 \subsubsection{Normal behaviour of the operators}
-	The test here are straightforward. We have to check wether the operation behave normaly or not. \\
+	The test here are straightforward. We have to check whether the operation behave normaly or not. \\
 	E.G.
 	\begin{itemize}
 		\item{4 / 3 = 1}
@@ -44,7 +44,7 @@ In addition to the division, plus and modulo operators when had to implement the
 		\item{...}
 	\end{itemize}
 \subsubsection{Priority of the operators}
-	Because we are dealing with arithmetic operatos, we have to check whether these operator respect the priority of the operation. Basicly, we implements rightPriority and leftPriority function in pass/*.java classes. Those one simply \textit{mix} the concerned operation with the binary plus.
+	Because we are dealing with arithmetic operators, we have to check whether these operator respect the priority of the operation. Basicly, we implements rightPriority and leftPriority function in pass/*.java classes. Those one simply \textit{mix} the concerned operation with the binary plus.
 	For example
 	\begin{itemize}
 		\item{10 + 3 / 3 = 11 (and not 4 !!!)}
@@ -52,7 +52,7 @@ In addition to the division, plus and modulo operators when had to implement the
 		\item{...\%...}
 	\end{itemize}		
 \subsubsection{Exception rise}
-	Concerning the modulo and the divisor operator, we have to test also that these operations rise the corrects exceptions whenever we try to divide by 0. Sadly, it's not possible to check wheter an exception is raised with the 3th version of junit. The workaround is to surround the concerned operation (int the concerned pass/*.java class) with a try catch instruction, call the fail() function just after the operation to force the programm to stop and to check  in the catch block that the message of the raised exception is the good one.\\ 
+	Concerning the modulo and the divisor operator, we have to test also that these operations rise the correct exceptions whenever we try to divide by 0. Sadly, it's not possible to check wheter an exception is raised with the 3th version of jUnit. The workaround is to surround the concerned operations (int the concerned pass/*.java class) with a try catch instruction, call the fail() function just after the operation to force the programm to stop and to check  in the catch block that the message of the raised exception is the good one.\\ 
 	E.G. : divide(3, 0)
 \begin{lstlisting}
 try {
@@ -64,11 +64,9 @@ catch (Exception e) {
 }
 \end{lstlisting}
 
-I know, it's nasty :-/
-
 \subsection{Test strategy for Primes}
 We try to think differently. We try to remember what the course LINGI1122(\textit{Methode de conception de programme}). I.e. Be defensive, check arrays boundaries when dealing with and check extremes values. Concretly, we tested the programm with negatives value, \textit{strange} value as 0, 1 and 2. 
 \section{Conclusion}
 
-Through implementing some simple feature into j--, it's clear that creating a programming langage from scratch can be tricky. However, this first assignment show us an insight of \textit{How to do it}. At last, it reminded us the good practice of programm developpement, while testing our functions with Junit for example.
+Through implementing some simple feature into j--, it's clear that creating a programming langage from scratch can be tricky. However, this first assignment show us an insight of \textit{How to do it}. At last, it reminded us the good practice of programm developpement, while testing our functions with jUnit for example.
 \end{document}
