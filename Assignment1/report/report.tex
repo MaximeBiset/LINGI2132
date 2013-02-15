@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{listings}
 \author{Xavier Crochet, Julien De Coster}
 \title{INGI2132 \\ Assignement 1 Report}
 \begin{document}
@@ -19,19 +20,50 @@ We implemented first the division, the unary plus and the modulo. We wrote likew
 The main choice we did was on the data structure of the \emph{primes.java} program. We analyzed two possibilies :
 
 \begin{enumerate}
-\item A structure with two lists. The first list contains integers from 1 to \emph{n}. The second list contains the marks. Both lists are equals in size in order to match each element from the first list to a mark from the second one. An element is marked as 0 if it is potentially a prime number or as 1 if it is identified as a multiple of a previous number of the list. We use the term \emph{potentially} because all the elements of the mark list are initialized at 0 except 0 and 1, initialized at 1.
+\item{A structure with two lists. The first list contains integers from 1 to \emph{n}. The second list contains the marks. Both lists are equals in size in order to match each element from the first list to a mark from the second one. An element is marked as 0 if it is potentially a prime number or as 1 if it is identified as a multiple of a previous number of the list. We use the term \emph{potentially} because all the elements of the mark list are initialized at 0 except 0 and 1, initialized at 1.}
 
-\item A structure with an unique linked list. Here the strategy is to remove every element identified as a multiple of a previous number. The benefit of this method is clear : we don't have to visit elements wich are not relevant because already identied.
+\item {A structure with an unique linked list. Here the strategy is to remove every element identified as a multiple of a previous number. The benefit of this method is clear : we don't have to visit elements wich are not relevant because already identied.}
 \end{enumerate}
 
 We choose the first strategy mainly for performance. Accessing elements and remove them from a linked list is costly. Our mesures showed that the first strategy took more or less ten times less time with wide values (e.g. 50 000).
 
 \section{Testing}
+\subsection{Test strategy for the operators}
+\subsubsection{Normal behaviour of the operators}
+	The test here are straightforward. We have to check wether the operation behave normaly or not. \\
+	E.G.
+	\begin{itemize}
+		\item{4 / 3 = 1}
+		\item{4 \% 3 = 1}
+		\item{+1 = 1}
+		\item{...}
+	\end{itemize}
+\subsubsection{Priority of the operators}
+	Because we are dealing with arithmetic operatos, we have to check whether these operator respect the priority of the operation. Basicly, we implements rightPriority and leftPriority function in pass/*.java classes. Those one simply \textit{mix} the concerned operation with the binary plus.
+	For example
+	\begin{itemize}
+		\item{10 + 3 / 3 = 11 (and not 4 !!!)}
+		\item{3 / 3 + 10 = 11 (and not 0 !!!)}
+		\item{...\%...}
+	\end{itemize}		
+\subsubsection{Exception rise}
+	Concerning the modulo and the divisor operator, we have to test also that these operations rise the corrects exceptions whenever we try to divide by 0. Sadly, it's not possible to check wheter an exception is raised with the 3th version of junit. The workaround is to surround the concerned operation (int the concerned pass/*.java class) with a try catch instruction, call the fail() function just after the operation to force the programm to stop and to check  in the catch block that the message of the raised exception is the good one.\\ 
+	E.G. : divide(3, 0)
+\begin{lstlisting}
+try {
+	division.divide(42, 0);
+	fail();
+}
+catch (Exception e) {
+	assertEquals("/ by zero", e.getMessage());
+}
+\end{lstlisting}
 
-We tested both the division, plus and modulo with priorities and the j-- program.
+I know, it's nasty :-/
 
-For the operators we used first basic tests (e.g. "4 / 2" or "4 mod 5") and then we tested the priorities (e.g. "3 + 4 / 5"). We obviously tested the division by zero also.
+\subsection{Test strategy for Primes}
+We try to think differently. We try to remember what the course LINGI1122(\textit{Methode de conception de programme}). I.e. Be defensive, check arrays boundaries when dealing with and check extremes values. Concretly, we tested the programm with negatives value, \textit{strange} value as 0, 1 and 2. 
+\section{Conclusion}
 
-We used another strategy for the j-- program. We mainly tested the extreme values : "What happen if we put negative numbers ?". We tested for values like 0, 1 (intialized at 1) and 2.
-
+Through implementing some simple feature into j--, it's clear that creating a programming langage from scratch can be tricky. However, this first assignment show us an insight of \textit{How to do it}. At last, it reminded us the good practice of programm developpement, while testing our functions with Junit for example.
 \end{document}
