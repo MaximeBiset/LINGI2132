@@ -117,7 +117,7 @@ class JavaCCParser implements JavaCCParserConstants {
         return errorHasOccurred;
     }
 
-  final public JCompilationUnit compilationUnit() throws ParseException {
+  static final public JCompilationUnit compilationUnit() throws ParseException {
     int line = 0;
     TypeName packageName = null; // Default
     TypeName anImport = null;
@@ -182,7 +182,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private TypeName qualifiedIdentifier() throws ParseException {
+  static final private TypeName qualifiedIdentifier() throws ParseException {
     int line = 0;
     String qualifiedIdentifier = "";
     try {
@@ -211,7 +211,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JAST typeDeclaration() throws ParseException {
+  static final private JAST typeDeclaration() throws ParseException {
     ArrayList<String> mods = null;
     JAST classDeclaration = null;
     try {
@@ -224,7 +224,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<String> modifiers() throws ParseException {
+  static final private ArrayList<String> modifiers() throws ParseException {
     ArrayList<String> mods = new ArrayList<String>();
     boolean scannedPUBLIC = false;
     boolean scannedPROTECTED = false;
@@ -309,7 +309,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JClassDeclaration classDeclaration(ArrayList<String> mods) throws ParseException {
+  static final private JClassDeclaration classDeclaration(ArrayList<String> mods) throws ParseException {
     int line = 0;
     String name = "";
     Type superClass = Type.OBJECT;
@@ -337,7 +337,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JMember> classBody() throws ParseException {
+  static final private ArrayList<JMember> classBody() throws ParseException {
     ArrayList<String> mods = null;
     JMember aMember = null;
     ArrayList<JMember> members = new ArrayList<JMember>();
@@ -374,7 +374,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JMember memberDecl(ArrayList<String>  mods) throws ParseException {
+  static final private JMember memberDecl(ArrayList<String>  mods) throws ParseException {
     int line = 0;
     Type type = null;
     String name = "";
@@ -454,7 +454,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JBlock block() throws ParseException {
+  static final private JBlock block() throws ParseException {
     int line = 0;
     JStatement aStatement = null;
     ArrayList<JStatement> statements = new ArrayList<JStatement>();
@@ -503,7 +503,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JStatement blockStatement() throws ParseException {
+  static final private JStatement blockStatement() throws ParseException {
     JStatement statement = null;
     try {
       if (jj_2_3(2147483647)) {
@@ -544,7 +544,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JStatement statement() throws ParseException {
+  static final private JStatement statement() throws ParseException {
     int line = 0;
     JStatement statement = null;
     JExpression test = null;
@@ -639,7 +639,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JFormalParameter> formalParameters() throws ParseException {
+  static final private ArrayList<JFormalParameter> formalParameters() throws ParseException {
     ArrayList<JFormalParameter> parameters =
         new ArrayList<JFormalParameter>();
     JFormalParameter aParameter = null;
@@ -679,7 +679,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JFormalParameter formalParameter() throws ParseException {
+  static final private JFormalParameter formalParameter() throws ParseException {
     int line = 0;
     Type type = null;
     String name = "";
@@ -695,7 +695,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression parExpression() throws ParseException {
+  static final private JExpression parExpression() throws ParseException {
     JExpression expr = null;
     try {
       jj_consume_token(LPAREN);
@@ -708,7 +708,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JVariableDeclaration localVariableDeclarationStatement() throws ParseException {
+  static final private JVariableDeclaration localVariableDeclarationStatement() throws ParseException {
     int line = 0;
     Type type = null;
     ArrayList<JVariableDeclarator> vdecls = null;
@@ -725,7 +725,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JVariableDeclarator> variableDeclarators(Type type) throws ParseException {
+  static final private ArrayList<JVariableDeclarator> variableDeclarators(Type type) throws ParseException {
     JVariableDeclarator aVariableDeclarator = null;
     ArrayList<JVariableDeclarator> variableDeclarators =
         new ArrayList<JVariableDeclarator>();
@@ -753,7 +753,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JVariableDeclarator variableDeclarator(Type type) throws ParseException {
+  static final private JVariableDeclarator variableDeclarator(Type type) throws ParseException {
     int line = 0;
     JExpression initial = null;
     String name = "";
@@ -776,7 +776,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression variableInitializer(Type expected) throws ParseException {
+  static final private JExpression variableInitializer(Type expected) throws ParseException {
     JExpression initializer = null;
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -811,7 +811,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JArrayInitializer arrayInitializer(Type expected) throws ParseException {
+  static final private JArrayInitializer arrayInitializer(Type expected) throws ParseException {
     int line = 0;
     ArrayList<JExpression> initials = new ArrayList<JExpression>();
     JExpression anInitializer = null;
@@ -863,7 +863,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JExpression> arguments() throws ParseException {
+  static final private ArrayList<JExpression> arguments() throws ParseException {
     ArrayList<JExpression> args = new ArrayList<JExpression>();
     JExpression anExpression = null;
     try {
@@ -912,7 +912,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private Type type() throws ParseException {
+  static final private Type type() throws ParseException {
     Type type = null;
     try {
       if (jj_2_5(2147483647)) {
@@ -937,7 +937,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private Type basicType() throws ParseException {
+  static final private Type basicType() throws ParseException {
     Type type = Type.ANY;
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -965,7 +965,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private Type referenceType() throws ParseException {
+  static final private Type referenceType() throws ParseException {
     Type type = Type.ANY;
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1020,7 +1020,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JStatement statementExpression() throws ParseException {
+  static final private JStatement statementExpression() throws ParseException {
     int line = 0;
     JExpression expr = null;
     try {
@@ -1048,7 +1048,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression expression() throws ParseException {
+  static final private JExpression expression() throws ParseException {
     JExpression expr = null;
     try {
       expr = assignmentExpression();
@@ -1059,7 +1059,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression assignmentExpression() throws ParseException {
+  static final private JExpression assignmentExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     try {
@@ -1096,7 +1096,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression conditionalAndExpression() throws ParseException {
+  static final private JExpression conditionalAndExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     try {
@@ -1123,7 +1123,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression equalityExpression() throws ParseException {
+  static final private JExpression equalityExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     try {
@@ -1150,7 +1150,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression relationalExpression() throws ParseException {
+  static final private JExpression relationalExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     Type type = null;
@@ -1194,7 +1194,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression additiveExpression() throws ParseException {
+  static final private JExpression additiveExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     try {
@@ -1235,7 +1235,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression multiplicativeExpression() throws ParseException {
+  static final private JExpression multiplicativeExpression() throws ParseException {
     int line = 0;
     JExpression lhs = null, rhs = null;
     try {
@@ -1262,7 +1262,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression unaryExpression() throws ParseException {
+  static final private JExpression unaryExpression() throws ParseException {
     int line = 0;
     JExpression expr = null, unaryExpr = null;
     try {
@@ -1305,7 +1305,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression simpleUnaryExpression() throws ParseException {
+  static final private JExpression simpleUnaryExpression() throws ParseException {
     int line = 0;
     Type type = null;
     JExpression expr = null, unaryExpr = null, simpleUnaryExpr = null;
@@ -1362,7 +1362,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression postfixExpression() throws ParseException {
+  static final private JExpression postfixExpression() throws ParseException {
     int line = 0;
     JExpression primaryExpr = null;
     try {
@@ -1402,7 +1402,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression selector(JExpression target) throws ParseException {
+  static final private JExpression selector(JExpression target) throws ParseException {
     int line = 0;
     ArrayList<JExpression> args = null;
     TypeName id = null;
@@ -1445,7 +1445,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression primary() throws ParseException {
+  static final private JExpression primary() throws ParseException {
     int line = 0;
     JExpression expr = null;
     JExpression newTarget = null;
@@ -1548,7 +1548,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression creator() throws ParseException {
+  static final private JExpression creator() throws ParseException {
     int line = 0;
     Type type = null;
     ArrayList<JExpression> args = null;
@@ -1625,7 +1625,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JNewArrayOp newArrayDeclarator(Type type) throws ParseException {
+  static final private JNewArrayOp newArrayDeclarator(Type type) throws ParseException {
     int line = 0;
     ArrayList<JExpression> dimensions = new ArrayList<JExpression>();
     JExpression expr = null;
@@ -1665,7 +1665,7 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private JExpression literal() throws ParseException {
+  static final private JExpression literal() throws ParseException {
     JExpression expr = null;
     try {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1707,84 +1707,84 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private boolean jj_2_1(int xla) {
+  static final private boolean jj_2_1(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_1(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(0, xla); }
   }
 
-  final private boolean jj_2_2(int xla) {
+  static final private boolean jj_2_2(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_2(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(1, xla); }
   }
 
-  final private boolean jj_2_3(int xla) {
+  static final private boolean jj_2_3(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_3(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(2, xla); }
   }
 
-  final private boolean jj_2_4(int xla) {
+  static final private boolean jj_2_4(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_4(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(3, xla); }
   }
 
-  final private boolean jj_2_5(int xla) {
+  static final private boolean jj_2_5(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_5(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(4, xla); }
   }
 
-  final private boolean jj_2_6(int xla) {
+  static final private boolean jj_2_6(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_6(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(5, xla); }
   }
 
-  final private boolean jj_2_7(int xla) {
+  static final private boolean jj_2_7(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_7(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(6, xla); }
   }
 
-  final private boolean jj_2_8(int xla) {
+  static final private boolean jj_2_8(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_8(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(7, xla); }
   }
 
-  final private boolean jj_2_9(int xla) {
+  static final private boolean jj_2_9(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_9(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(8, xla); }
   }
 
-  final private boolean jj_2_10(int xla) {
+  static final private boolean jj_2_10(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_10(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(9, xla); }
   }
 
-  final private boolean jj_2_11(int xla) {
+  static final private boolean jj_2_11(int xla) {
     jj_la = xla; jj_lastpos = jj_scanpos = token;
     try { return !jj_3_11(); }
     catch(LookaheadSuccess ls) { return true; }
     finally { jj_save(10, xla); }
   }
 
-  final private boolean jj_3R_81() {
+  static final private boolean jj_3R_81() {
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(IDENTIFIER)) return true;
     Token xsp;
@@ -1793,18 +1793,18 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_80() {
+  static final private boolean jj_3R_80() {
     if (jj_3R_87()) return true;
     return false;
   }
 
-  final private boolean jj_3R_111() {
+  static final private boolean jj_3R_111() {
     if (jj_scan_token(COMMA)) return true;
     if (jj_3R_110()) return true;
     return false;
   }
 
-  final private boolean jj_3_2() {
+  static final private boolean jj_3_2() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_scan_token(29)) {
@@ -1816,18 +1816,18 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_56() {
+  static final private boolean jj_3R_56() {
     if (jj_scan_token(STAR)) return true;
     if (jj_3R_55()) return true;
     return false;
   }
 
-  final private boolean jj_3R_79() {
+  static final private boolean jj_3R_79() {
     if (jj_3R_87()) return true;
     return false;
   }
 
-  final private boolean jj_3R_73() {
+  static final private boolean jj_3R_73() {
     if (jj_scan_token(SUPER)) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -1838,7 +1838,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_109() {
+  static final private boolean jj_3R_109() {
     if (jj_3R_110()) return true;
     Token xsp;
     while (true) {
@@ -1848,7 +1848,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_72() {
+  static final private boolean jj_3R_72() {
     if (jj_scan_token(THIS)) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -1856,12 +1856,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_71() {
+  static final private boolean jj_3R_71() {
     if (jj_3R_78()) return true;
     return false;
   }
 
-  final private boolean jj_3R_50() {
+  static final private boolean jj_3R_50() {
     if (jj_3R_55()) return true;
     Token xsp;
     while (true) {
@@ -1871,7 +1871,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_68() {
+  static final private boolean jj_3R_68() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_71()) {
@@ -1893,18 +1893,18 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_1() {
+  static final private boolean jj_3_1() {
     if (jj_scan_token(IDENTIFIER)) return true;
     if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
-  final private boolean jj_3R_27() {
+  static final private boolean jj_3R_27() {
     if (jj_3R_35()) return true;
     return false;
   }
 
-  final private boolean jj_3R_108() {
+  static final private boolean jj_3R_108() {
     if (jj_scan_token(LCURLY)) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -1913,28 +1913,28 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_94() {
+  static final private boolean jj_3R_94() {
     if (jj_scan_token(NULL)) return true;
     return false;
   }
 
-  final private boolean jj_3R_93() {
+  static final private boolean jj_3R_93() {
     if (jj_scan_token(FALSE)) return true;
     return false;
   }
 
-  final private boolean jj_3R_58() {
+  static final private boolean jj_3R_58() {
     if (jj_scan_token(MINUS)) return true;
     if (jj_3R_50()) return true;
     return false;
   }
 
-  final private boolean jj_3R_92() {
+  static final private boolean jj_3R_92() {
     if (jj_scan_token(TRUE)) return true;
     return false;
   }
 
-  final private boolean jj_3R_51() {
+  static final private boolean jj_3R_51() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_57()) {
@@ -1944,44 +1944,44 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_57() {
+  static final private boolean jj_3R_57() {
     if (jj_scan_token(PLUS)) return true;
     if (jj_3R_50()) return true;
     return false;
   }
 
-  final private boolean jj_3R_91() {
+  static final private boolean jj_3R_91() {
     if (jj_scan_token(STRING_LITERAL)) return true;
     return false;
   }
 
-  final private boolean jj_3R_90() {
+  static final private boolean jj_3R_90() {
     if (jj_scan_token(CHAR_LITERAL)) return true;
     return false;
   }
 
-  final private boolean jj_3R_89() {
+  static final private boolean jj_3R_89() {
     if (jj_scan_token(INT_LITERAL)) return true;
     return false;
   }
 
-  final private boolean jj_3R_113() {
+  static final private boolean jj_3R_113() {
     if (jj_3R_27()) return true;
     return false;
   }
 
-  final private boolean jj_3R_112() {
+  static final private boolean jj_3R_112() {
     if (jj_3R_108()) return true;
     return false;
   }
 
-  final private boolean jj_3R_86() {
+  static final private boolean jj_3R_86() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_82() {
+  static final private boolean jj_3R_82() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_89()) {
@@ -2003,12 +2003,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_98() {
+  static final private boolean jj_3R_98() {
     if (jj_3R_87()) return true;
     return false;
   }
 
-  final private boolean jj_3R_48() {
+  static final private boolean jj_3R_48() {
     if (jj_3R_50()) return true;
     Token xsp;
     while (true) {
@@ -2018,7 +2018,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_110() {
+  static final private boolean jj_3R_110() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_112()) {
@@ -2028,19 +2028,19 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_41() {
+  static final private boolean jj_3R_41() {
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(IDENTIFIER)) return true;
     return false;
   }
 
-  final private boolean jj_3_11() {
+  static final private boolean jj_3_11() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_85() {
+  static final private boolean jj_3R_85() {
     if (jj_scan_token(DOT)) return true;
     if (jj_3R_37()) return true;
     Token xsp;
@@ -2049,19 +2049,19 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_10() {
+  static final private boolean jj_3_10() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_3R_27()) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3_4() {
+  static final private boolean jj_3_4() {
     if (jj_scan_token(ELSE)) return true;
     return false;
   }
 
-  final private boolean jj_3R_77() {
+  static final private boolean jj_3R_77() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_85()) {
@@ -2071,13 +2071,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_107() {
+  static final private boolean jj_3R_107() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_37() {
+  static final private boolean jj_3R_37() {
     if (jj_scan_token(IDENTIFIER)) return true;
     Token xsp;
     while (true) {
@@ -2087,26 +2087,26 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_54() {
+  static final private boolean jj_3R_54() {
     if (jj_scan_token(INSTANCEOF)) return true;
     if (jj_3R_26()) return true;
     return false;
   }
 
-  final private boolean jj_3R_53() {
+  static final private boolean jj_3R_53() {
     if (jj_scan_token(LE)) return true;
     if (jj_3R_48()) return true;
     return false;
   }
 
-  final private boolean jj_3R_106() {
+  static final private boolean jj_3R_106() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_3R_27()) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_49() {
+  static final private boolean jj_3R_49() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_52()) {
@@ -2119,25 +2119,25 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_52() {
+  static final private boolean jj_3R_52() {
     if (jj_scan_token(GT)) return true;
     if (jj_3R_48()) return true;
     return false;
   }
 
-  final private boolean jj_3R_38() {
+  static final private boolean jj_3R_38() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_36() {
+  static final private boolean jj_3R_36() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_34() {
+  static final private boolean jj_3R_34() {
     if (jj_3R_37()) return true;
     Token xsp;
     while (true) {
@@ -2147,7 +2147,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_46() {
+  static final private boolean jj_3R_46() {
     if (jj_3R_48()) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -2155,7 +2155,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_102() {
+  static final private boolean jj_3R_102() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_3R_27()) return true;
     if (jj_scan_token(RBRACK)) return true;
@@ -2171,12 +2171,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_70() {
+  static final private boolean jj_3R_70() {
     if (jj_scan_token(DEC)) return true;
     return false;
   }
 
-  final private boolean jj_3R_33() {
+  static final private boolean jj_3R_33() {
     if (jj_3R_25()) return true;
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
@@ -2188,12 +2188,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_69() {
+  static final private boolean jj_3R_69() {
     if (jj_3R_77()) return true;
     return false;
   }
 
-  final private boolean jj_3R_26() {
+  static final private boolean jj_3R_26() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_33()) {
@@ -2203,7 +2203,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_67() {
+  static final private boolean jj_3R_67() {
     if (jj_3R_68()) return true;
     Token xsp;
     while (true) {
@@ -2217,72 +2217,72 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_8() {
+  static final private boolean jj_3_8() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_47() {
+  static final private boolean jj_3R_47() {
     if (jj_scan_token(EQUAL)) return true;
     if (jj_3R_46()) return true;
     return false;
   }
 
-  final private boolean jj_3R_104() {
+  static final private boolean jj_3R_104() {
     if (jj_3R_108()) return true;
     return false;
   }
 
-  final private boolean jj_3_9() {
+  static final private boolean jj_3_9() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_3R_27()) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3R_103() {
+  static final private boolean jj_3R_103() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3_3() {
+  static final private boolean jj_3_3() {
     if (jj_3R_23()) return true;
     if (jj_scan_token(IDENTIFIER)) return true;
     return false;
   }
 
-  final private boolean jj_3R_32() {
+  static final private boolean jj_3R_32() {
     if (jj_scan_token(INT)) return true;
     return false;
   }
 
-  final private boolean jj_3R_31() {
+  static final private boolean jj_3R_31() {
     if (jj_scan_token(CHAR)) return true;
     return false;
   }
 
-  final private boolean jj_3R_24() {
+  static final private boolean jj_3R_24() {
     if (jj_3R_25()) return true;
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3_7() {
+  static final private boolean jj_3_7() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_26()) return true;
     if (jj_scan_token(RPAREN)) return true;
     return false;
   }
 
-  final private boolean jj_3R_30() {
+  static final private boolean jj_3R_30() {
     if (jj_scan_token(BOOLEAN)) return true;
     return false;
   }
 
-  final private boolean jj_3R_42() {
+  static final private boolean jj_3R_42() {
     if (jj_3R_46()) return true;
     Token xsp;
     while (true) {
@@ -2292,7 +2292,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_97() {
+  static final private boolean jj_3R_97() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     Token xsp;
@@ -2305,12 +2305,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_66() {
+  static final private boolean jj_3R_66() {
     if (jj_3R_67()) return true;
     return false;
   }
 
-  final private boolean jj_3R_25() {
+  static final private boolean jj_3R_25() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_30()) {
@@ -2323,29 +2323,29 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_6() {
+  static final private boolean jj_3_6() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_25()) return true;
     if (jj_scan_token(RPAREN)) return true;
     return false;
   }
 
-  final private boolean jj_3R_96() {
+  static final private boolean jj_3R_96() {
     if (jj_3R_102()) return true;
     return false;
   }
 
-  final private boolean jj_3R_101() {
+  static final private boolean jj_3R_101() {
     if (jj_3R_37()) return true;
     return false;
   }
 
-  final private boolean jj_3R_100() {
+  static final private boolean jj_3R_100() {
     if (jj_3R_25()) return true;
     return false;
   }
 
-  final private boolean jj_3R_65() {
+  static final private boolean jj_3R_65() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_26()) return true;
     if (jj_scan_token(RPAREN)) return true;
@@ -2353,7 +2353,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_95() {
+  static final private boolean jj_3R_95() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_100()) {
@@ -2364,7 +2364,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_5() {
+  static final private boolean jj_3_5() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_scan_token(52)) {
@@ -2374,7 +2374,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_83() {
+  static final private boolean jj_3R_83() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_95()) {
@@ -2387,7 +2387,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_64() {
+  static final private boolean jj_3R_64() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_25()) return true;
     if (jj_scan_token(RPAREN)) return true;
@@ -2395,24 +2395,24 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_63() {
+  static final private boolean jj_3R_63() {
     if (jj_scan_token(LNOT)) return true;
     if (jj_3R_55()) return true;
     return false;
   }
 
-  final private boolean jj_3R_43() {
+  static final private boolean jj_3R_43() {
     if (jj_scan_token(LAND)) return true;
     if (jj_3R_42()) return true;
     return false;
   }
 
-  final private boolean jj_3R_29() {
+  static final private boolean jj_3R_29() {
     if (jj_3R_25()) return true;
     return false;
   }
 
-  final private boolean jj_3R_62() {
+  static final private boolean jj_3R_62() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_63()) {
@@ -2428,12 +2428,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_28() {
+  static final private boolean jj_3R_28() {
     if (jj_3R_26()) return true;
     return false;
   }
 
-  final private boolean jj_3R_23() {
+  static final private boolean jj_3R_23() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_28()) {
@@ -2443,7 +2443,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_39() {
+  static final private boolean jj_3R_39() {
     if (jj_3R_42()) return true;
     Token xsp;
     while (true) {
@@ -2453,23 +2453,23 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_84() {
+  static final private boolean jj_3R_84() {
     if (jj_3R_87()) return true;
     return false;
   }
 
-  final private boolean jj_3R_105() {
+  static final private boolean jj_3R_105() {
     if (jj_scan_token(COMMA)) return true;
     if (jj_3R_27()) return true;
     return false;
   }
 
-  final private boolean jj_3R_61() {
+  static final private boolean jj_3R_61() {
     if (jj_3R_62()) return true;
     return false;
   }
 
-  final private boolean jj_3R_99() {
+  static final private boolean jj_3R_99() {
     if (jj_3R_27()) return true;
     Token xsp;
     while (true) {
@@ -2479,32 +2479,32 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_45() {
+  static final private boolean jj_3R_45() {
     if (jj_scan_token(PLUS_ASSIGN)) return true;
     if (jj_3R_35()) return true;
     return false;
   }
 
-  final private boolean jj_3R_78() {
+  static final private boolean jj_3R_78() {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_27()) return true;
     if (jj_scan_token(RPAREN)) return true;
     return false;
   }
 
-  final private boolean jj_3R_60() {
+  static final private boolean jj_3R_60() {
     if (jj_scan_token(MINUS)) return true;
     if (jj_3R_55()) return true;
     return false;
   }
 
-  final private boolean jj_3R_44() {
+  static final private boolean jj_3R_44() {
     if (jj_scan_token(ASSIGN)) return true;
     if (jj_3R_35()) return true;
     return false;
   }
 
-  final private boolean jj_3R_40() {
+  static final private boolean jj_3R_40() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_44()) {
@@ -2514,13 +2514,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_59() {
+  static final private boolean jj_3R_59() {
     if (jj_scan_token(INC)) return true;
     if (jj_3R_55()) return true;
     return false;
   }
 
-  final private boolean jj_3R_76() {
+  static final private boolean jj_3R_76() {
     if (jj_3R_37()) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -2528,7 +2528,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_55() {
+  static final private boolean jj_3R_55() {
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_59()) {
@@ -2541,7 +2541,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_87() {
+  static final private boolean jj_3R_87() {
     if (jj_scan_token(LPAREN)) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -2550,12 +2550,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_88() {
+  static final private boolean jj_3R_88() {
     if (jj_3R_87()) return true;
     return false;
   }
 
-  final private boolean jj_3R_35() {
+  static final private boolean jj_3R_35() {
     if (jj_3R_39()) return true;
     Token xsp;
     xsp = jj_scanpos;
@@ -2563,32 +2563,33 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_75() {
+  static final private boolean jj_3R_75() {
     if (jj_scan_token(NEW)) return true;
     if (jj_3R_83()) return true;
     return false;
   }
 
-  final private boolean jj_3R_74() {
+  static final private boolean jj_3R_74() {
     if (jj_3R_82()) return true;
     return false;
   }
 
-  final private boolean jj_3R_22() {
+  static final private boolean jj_3R_22() {
     if (jj_3R_23()) return true;
     return false;
   }
 
-  public JavaCCParserTokenManager token_source;
-  SimpleCharStream jj_input_stream;
-  public Token token, jj_nt;
-  private int jj_ntk;
-  private Token jj_scanpos, jj_lastpos;
-  private int jj_la;
-  public boolean lookingAhead = false;
-  private boolean jj_semLA;
-  private int jj_gen;
-  final private int[] jj_la1 = new int[55];
+  static private boolean jj_initialized_once = false;
+  static public JavaCCParserTokenManager token_source;
+  static SimpleCharStream jj_input_stream;
+  static public Token token, jj_nt;
+  static private int jj_ntk;
+  static private Token jj_scanpos, jj_lastpos;
+  static private int jj_la;
+  static public boolean lookingAhead = false;
+  static private boolean jj_semLA;
+  static private int jj_gen;
+  static final private int[] jj_la1 = new int[55];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -2601,14 +2602,21 @@ class JavaCCParser implements JavaCCParserConstants {
    private static void jj_la1_1() {
       jj_la1_1 = new int[] {0x0,0x0,0x0,0x80000,0x0,0x0,0x0,0x100000,0x100000,0x22000,0x100000,0x7122990,0x7122990,0x7100990,0x7122990,0x40000,0x100000,0x40000,0x1,0x7102990,0x40000,0x7102990,0x40000,0x7100990,0x0,0x0,0x8000,0x8000,0x100000,0x201,0x201,0x20,0x4,0x48,0x48,0x100,0x100,0x400,0x7100990,0x80,0x7100800,0x88000,0x2,0x800,0x88000,0x800,0x800,0x80800,0x800,0x7100800,0x100000,0x2000,0x100000,0x8000,0x7000000,};
    }
-  final private JJCalls[] jj_2_rtns = new JJCalls[11];
-  private boolean jj_rescan = false;
-  private int jj_gc = 0;
+  static final private JJCalls[] jj_2_rtns = new JJCalls[11];
+  static private boolean jj_rescan = false;
+  static private int jj_gc = 0;
 
   public JavaCCParser(java.io.InputStream stream) {
      this(stream, null);
   }
   public JavaCCParser(java.io.InputStream stream, String encoding) {
+    if (jj_initialized_once) {
+      System.out.println("ERROR: Second call to constructor of static parser.  You must");
+      System.out.println("       either use ReInit() or set the JavaCC option STATIC to false");
+      System.out.println("       during parser generation.");
+      throw new Error();
+    }
+    jj_initialized_once = true;
     try { jj_input_stream = new SimpleCharStream(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
     token_source = new JavaCCParserTokenManager(jj_input_stream);
     token = new Token();
@@ -2618,10 +2626,10 @@ class JavaCCParser implements JavaCCParserConstants {
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
-  public void ReInit(java.io.InputStream stream) {
+  static public void ReInit(java.io.InputStream stream) {
      ReInit(stream, null);
   }
-  public void ReInit(java.io.InputStream stream, String encoding) {
+  static public void ReInit(java.io.InputStream stream, String encoding) {
     try { jj_input_stream.ReInit(stream, encoding, 1, 1); } catch(java.io.UnsupportedEncodingException e) { throw new RuntimeException(e); }
     token_source.ReInit(jj_input_stream);
     token = new Token();
@@ -2632,6 +2640,13 @@ class JavaCCParser implements JavaCCParserConstants {
   }
 
   public JavaCCParser(java.io.Reader stream) {
+    if (jj_initialized_once) {
+      System.out.println("ERROR: Second call to constructor of static parser.  You must");
+      System.out.println("       either use ReInit() or set the JavaCC option STATIC to false");
+      System.out.println("       during parser generation.");
+      throw new Error();
+    }
+    jj_initialized_once = true;
     jj_input_stream = new SimpleCharStream(stream, 1, 1);
     token_source = new JavaCCParserTokenManager(jj_input_stream);
     token = new Token();
@@ -2641,7 +2656,7 @@ class JavaCCParser implements JavaCCParserConstants {
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
-  public void ReInit(java.io.Reader stream) {
+  static public void ReInit(java.io.Reader stream) {
     jj_input_stream.ReInit(stream, 1, 1);
     token_source.ReInit(jj_input_stream);
     token = new Token();
@@ -2652,6 +2667,13 @@ class JavaCCParser implements JavaCCParserConstants {
   }
 
   public JavaCCParser(JavaCCParserTokenManager tm) {
+    if (jj_initialized_once) {
+      System.out.println("ERROR: Second call to constructor of static parser.  You must");
+      System.out.println("       either use ReInit() or set the JavaCC option STATIC to false");
+      System.out.println("       during parser generation.");
+      throw new Error();
+    }
+    jj_initialized_once = true;
     token_source = tm;
     token = new Token();
     jj_ntk = -1;
@@ -2669,7 +2691,7 @@ class JavaCCParser implements JavaCCParserConstants {
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
-  final private Token jj_consume_token(int kind) throws ParseException {
+  static final private Token jj_consume_token(int kind) throws ParseException {
     Token oldToken;
     if ((oldToken = token).next != null) token = token.next;
     else token = token.next = token_source.getNextToken();
@@ -2694,8 +2716,8 @@ class JavaCCParser implements JavaCCParserConstants {
   }
 
   static private final class LookaheadSuccess extends java.lang.Error { }
-  final private LookaheadSuccess jj_ls = new LookaheadSuccess();
-  final private boolean jj_scan_token(int kind) {
+  static final private LookaheadSuccess jj_ls = new LookaheadSuccess();
+  static final private boolean jj_scan_token(int kind) {
     if (jj_scanpos == jj_lastpos) {
       jj_la--;
       if (jj_scanpos.next == null) {
@@ -2716,7 +2738,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final public Token getNextToken() {
+  static final public Token getNextToken() {
     if (token.next != null) token = token.next;
     else token = token.next = token_source.getNextToken();
     jj_ntk = -1;
@@ -2724,7 +2746,7 @@ class JavaCCParser implements JavaCCParserConstants {
     return token;
   }
 
-  final public Token getToken(int index) {
+  static final public Token getToken(int index) {
     Token t = lookingAhead ? jj_scanpos : token;
     for (int i = 0; i < index; i++) {
       if (t.next != null) t = t.next;
@@ -2733,20 +2755,20 @@ class JavaCCParser implements JavaCCParserConstants {
     return t;
   }
 
-  final private int jj_ntk() {
+  static final private int jj_ntk() {
     if ((jj_nt=token.next) == null)
       return (jj_ntk = (token.next=token_source.getNextToken()).kind);
     else
       return (jj_ntk = jj_nt.kind);
   }
 
-  private java.util.Vector jj_expentries = new java.util.Vector();
-  private int[] jj_expentry;
-  private int jj_kind = -1;
-  private int[] jj_lasttokens = new int[100];
-  private int jj_endpos;
+  static private java.util.Vector jj_expentries = new java.util.Vector();
+  static private int[] jj_expentry;
+  static private int jj_kind = -1;
+  static private int[] jj_lasttokens = new int[100];
+  static private int jj_endpos;
 
-  private void jj_add_error_token(int kind, int pos) {
+  static private void jj_add_error_token(int kind, int pos) {
     if (pos >= 100) return;
     if (pos == jj_endpos + 1) {
       jj_lasttokens[jj_endpos++] = kind;
@@ -2774,7 +2796,7 @@ class JavaCCParser implements JavaCCParserConstants {
     }
   }
 
-  public ParseException generateParseException() {
+  static public ParseException generateParseException() {
     jj_expentries.removeAllElements();
     boolean[] la1tokens = new boolean[61];
     for (int i = 0; i < 61; i++) {
@@ -2813,13 +2835,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return new ParseException(token, exptokseq, tokenImage);
   }
 
-  final public void enable_tracing() {
+  static final public void enable_tracing() {
   }
 
-  final public void disable_tracing() {
+  static final public void disable_tracing() {
   }
 
-  final private void jj_rescan_token() {
+  static final private void jj_rescan_token() {
     jj_rescan = true;
     for (int i = 0; i < 11; i++) {
     try {
@@ -2848,7 +2870,7 @@ class JavaCCParser implements JavaCCParserConstants {
     jj_rescan = false;
   }
 
-  final private void jj_save(int index, int xla) {
+  static final private void jj_save(int index, int xla) {
     JJCalls p = jj_2_rtns[index];
     while (p.gen > jj_gen) {
       if (p.next == null) { p = p.next = new JJCalls(); break; }
