@@ -108,20 +108,14 @@ class Scanner {
                     }
                 } 
                 else if (ch == '*') {
-                	Stack<Character> stack = new Stack<Character>();
-                	nextCh();
-                	
-                	stack.push(ch);
                 	
                 	// Comment on several lines
                 	while (true) {
                 		nextCh();
-                		
-                		if(ch == '/' && stack.pop() == '*') {
-                			break;
-                		}
-                		else {
-                			stack.push(ch);
+                		if(ch == '*') {
+                			nextCh();
+                			if(ch == '/' )
+                				break;
                 		}
                 	}
                 }

@@ -136,30 +136,31 @@ PARSER_END( JavaCCParser )
 //         The j-- lexical grammar starts here         //
 /////////////////////////////////////////////////////////
 
-TOKEN_MGR_DECLS: {
-	int commentDepth;
-}
-
-// Nested comments
-SKIP:{ "(*" { commentDepth = 1; }: COMMENT }
-
-<COMMENT> SKIP : { "(*" { commentDepth+=1; } }
-<COMMENT> SKIP : { "*)"
-	{ commentDepth -= 1;
-	SwitchTo( commentDepth == 0 ? DEFAULT : COMMENT); } }
-<COMMENT> SKIP: { < ~[] > }
-
 // Whitespace -- ignored
 SKIP: {" "|"\t"|"\n"|"\r"|"\f"}
 
 // Single line comment -- ignored
 SKIP: {<SINGLE_LINE_COMMENT: "//" (~["\n","\r"])* ("\n"|"\r"|"\r\n")>}
 
-// Multi-line comment -- ignored
-SKIP: {"/*": MLCOMMENTS }
-<MLCOMMENTS> SKIP : { "*/" : DEFAULT}
-<MLCOMMENTS> SKIP : { < ~[] > }
+// Several lines comment -- ignored
+SKIP : {"/*" : MULTI_LINE_COMMENT }
+<MULTI_LINE_COMMENT> SKIP : { "*/" : DEFAULT}
+<MULTI_LINE_COMMENT> SKIP : { < ~[] > } 
 
+// Nested comment
+
+TOKEN_MGR_DECLS: {
+	int commentDepth;
+}
+
+
+SKIP : { "/*" { commentDepth = 1; }: COMMENT }
+
+<COMMENT> SKIP : { "/*" { commentDepth += 1; } }
+
+<COMMENT> SKIP : { "*/" { commentDepth -= 1; SwitchTo( commentDepth == 0 ? DEFAULT : COMMENT ); } }
+	
+<COMMENT> SKIP : { < ~[] > }
 // Reserved words
 TOKEN:
 {
@@ -237,6 +238,9 @@ TOKEN:
 | < STRING_LITERAL: "\"" (<ESC> | ~["\"","\\","\n","\r"])* "\"" >   
 | < #ESC: "\\" ["n","t","b","r","f","\\","'","\""] >
 }
+
+// Special
+
 
 // For anything else, we return an ERROR token. Without this 
 // definition the TokenManager will throw an Error when a lexical 
