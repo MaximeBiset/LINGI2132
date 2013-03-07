@@ -21,13 +21,13 @@ public class JMinusMinusTestRunner {
         suite.addTestSuite(GCDTest.class);
         suite.addTestSuite(SeriesTest.class);
         suite.addTestSuite(ClassesTest.class);
-        suite.addTestSuite(DivisionTest.class);
+        /*suite.addTestSuite(DivisionTest.class);
         suite.addTestSuite(ModuloTest.class);
         suite.addTestSuite(PlusTest.class);
         suite.addTestSuite(RightShiftTest.class);
         suite.addTestSuite(LeftShiftTest.class);
         suite.addTestSuite(LesserThanTest.class);
-        suite.addTestSuite(PrimesTest.class);
+        suite.addTestSuite(PrimesTest.class);*/
         return suite;
     }
 
