@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.LineNumberReader;
 import java.util.Hashtable;
 import static jminusminus.TokenKind.*;
+import java.util.Stack;
 
 /**
  * A lexical analyzer for j--, that has no backtracking mechanism.
@@ -91,6 +92,8 @@ class Scanner {
      * @return the the next scanned token.
      */
 
+    /* niubub /* uhiuh */ jiuhi */
+    
     public TokenInfo getNextToken() {
         StringBuffer buffer;
         boolean moreWhiteSpace = true;
@@ -105,7 +108,26 @@ class Scanner {
                     while (ch != '\n' && ch != EOFCH) {
                         nextCh();
                     }
-                } else {
+                } 
+                else if (ch == '*') {
+                	Stack<Character> stack = new Stack<Character>();
+                	nextCh();
+                	
+                	stack.push(ch);
+                	
+                	// Comment on several lines
+                	while (true) {
+                		nextCh();
+                		
+                		if(ch == '/' && stack.pop() == '*') {
+                			break;
+                		}
+                		else {
+                			stack.push(ch);
+                		}
+                	}
+                }
+                else {
                     return new TokenInfo(DIV, line);
                 }
             } else {
@@ -230,6 +252,7 @@ class Scanner {
             }
         case '"':
             buffer = new StringBuffer();
+            
             buffer.append("\"");
             nextCh();
             while (ch != '"' && ch != '\n' && ch != EOFCH) {
