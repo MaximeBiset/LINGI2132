@@ -91,8 +91,6 @@ class Scanner {
      * 
      * @return the the next scanned token.
      */
-
-    /* niubub /* uhiuh */ jiuhi */
     
     public TokenInfo getNextToken() {
         StringBuffer buffer;
