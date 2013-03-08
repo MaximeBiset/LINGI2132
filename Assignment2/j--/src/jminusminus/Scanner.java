@@ -204,6 +204,12 @@ class Scanner {
                 reportScannerError("Operator < is not supported in j--.");
                 return getNextToken();
             }
+        case '?':
+        	nextCh();
+        	return new TokenInfo(QM, line);
+        case ':':
+        	nextCh();
+        	return new TokenInfo(COLON, line);
         case '\'':
             buffer = new StringBuffer();
             buffer.append('\'');

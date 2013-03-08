@@ -1,3 +1,6 @@
-#Thu Mar 07 17:13:10 CET 2013
+#Thu Mar 07 22:09:19 CET 2013
+Console.lowWaterMark=999000
 eclipse.preferences.version=1
+Console.highWaterMark=1007000
 preferredTargets=default\:default|
+org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n

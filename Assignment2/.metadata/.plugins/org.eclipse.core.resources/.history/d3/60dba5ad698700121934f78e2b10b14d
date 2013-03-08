@@ -1,0 +1,16 @@
+package pass;
+
+public class ConditionalExpression
+{
+	public int conditionalExpression(boolean condition, int x, int y)
+	{
+		int a;
+		condition ? a = x : a = y;
+		return a;
+	}
+	
+	public static void main(String[] args)
+	{
+		System.out.println("Result : "+conditionnalExpression(true, 42, 666));
+	}
+}

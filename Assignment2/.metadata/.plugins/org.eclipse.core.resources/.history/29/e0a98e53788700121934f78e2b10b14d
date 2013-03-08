@@ -1,0 +1,12 @@
+package pass;
+
+public class ConditionalExpression
+{
+	public static void main(String[] args)
+	{	
+		int a;
+		true ? a = 42 : a = 666;
+		a = 2 * 8;
+	}
+
+}

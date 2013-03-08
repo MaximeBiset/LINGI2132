@@ -1,0 +1,37 @@
+package jminusminus;
+
+public class JConditionalExpression extends JExpression {
+
+	private JExpression condition;
+	private JExpression thenPart;
+	private JExpression elsePart;
+	protected JConditionalExpression(int line, JExpression condition, JExpression thenPart, JExpression elsePart) 
+	{
+		super(line);
+		this.condition = condition;
+		this.thenPart = thenPart;
+		this.elsePart = elsePart;
+	}
+
+
+	public JExpression analyze(Context context) 
+	{
+		return this.analyze(context);
+	}
+
+	@Override
+	public void codegen(CLEmitter output) 
+	{
+		this.codegen(output);
+
+	}
+
+	@Override
+	public void writeToStdOut(PrettyPrinter p)
+	{	p.printf("COUCOU PETITE PERRUCHE");
+		p.printf(condition+" ? "+thenPart+ " : "+elsePart);
+		condition.writeToStdOut(p);
+
+	}
+
+}

@@ -1,0 +1,12 @@
+package pass;
+
+public class ConditionalExpression
+{
+	public static void main(String[] args)
+	{
+		true ?
+				System.out.println("42"):
+					System.out.println("666");
+	}
+
+}
