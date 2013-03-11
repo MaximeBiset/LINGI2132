@@ -184,6 +184,19 @@ public class Parser {
 		return result;
 	}
 
+	public boolean isEnhancedFor()
+	{
+		scanner.recordPosition();
+		boolean result = false;
+		while(!see(RPAREN) && !result) {
+			if(see(COLON)) {
+				result = true;
+			}
+			scanner.next();
+		}
+		scanner.returnToPosition();
+		return result;
+	}
 	/**
 	 * Are we looking at a cast? ie.
 	 * 
@@ -661,7 +674,12 @@ public class Parser {
 		if (see(LCURLY)) {
 			return block();
 		} else if(have(FOR)) {
-			return forStatement();
+			if(isEnhancedFor()) {
+				return enhancedForStatement();
+			}
+			else {
+				return forStatement();
+			}
 		} else if (have(IF)) {
 			JExpression test = parExpression();
 			JStatement consequent = statement();
@@ -690,7 +708,15 @@ public class Parser {
 	
 	public JEnhancedForStatement enhancedForStatement()
 	{
-		return null;
+		int line = scanner.token().line();
+		mustBe(LPAREN);
+		JFormalParameter param = formalParameter();
+		mustBe(COLON);
+		JExpression expression = expression();
+		mustBe(RPAREN);
+		JStatement statement = statement();
+		return new JEnhancedForStatement(line, param, expression, statement);
+		
 	}
 
 	public JForStatement forStatement()

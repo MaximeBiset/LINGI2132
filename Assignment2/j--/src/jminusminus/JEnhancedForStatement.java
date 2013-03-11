@@ -4,13 +4,15 @@ public class JEnhancedForStatement extends JStatement {
 	
 	JFormalParameter param;
 	JExpression expression;
+	JStatement statement;
 	
 
-	protected JEnhancedForStatement(int line, JFormalParameter param, JExpression expression)
+	protected JEnhancedForStatement(int line, JFormalParameter param, JExpression expression, JStatement statement)
 	{
 		super(line);
 		this.param = param;
 		this.expression = expression;
+		this.statement = statement;
 	}
 
 	@Override
@@ -40,6 +42,11 @@ public class JEnhancedForStatement extends JStatement {
         expression.writeToStdOut(p);
         p.indentLeft();
         p.printf("</JExpression>\n");
+        p.printf("<JStatement>\n");
+        p.indentRight();
+        statement.writeToStdOut(p);
+        p.indentLeft();
+        p.printf("</JStatement>\n");
         p.indentLeft();
         p.printf("</JEnhancedForStatement>\n");
 

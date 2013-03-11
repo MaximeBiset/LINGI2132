@@ -13,7 +13,7 @@
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="132" y="36"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="86" y="36"/>
 <coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="86" y="36"/>
-<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="138" y="36"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="78" y="36"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="200" y="36"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -41,21 +41,21 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JConditionalExpression.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="300" selectionTopPixel="0"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" partName="Parser.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/src/jminusminus/Parser.java" title="Parser.java" tooltip="j--/src/jminusminus/Parser.java" workbook="DefaultEditorWorkbook">
+<editor focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" partName="Parser.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/src/jminusminus/Parser.java" title="Parser.java" tooltip="j--/src/jminusminus/Parser.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/Parser.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="16112" selectionTopPixel="9132"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JEnhancedForStatement.java" partName="JEnhancedForStatement.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/src/jminusminus/JEnhancedForStatement.java" title="JEnhancedForStatement.java" tooltip="j--/src/jminusminus/JEnhancedForStatement.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="650" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JForStatement.java" partName="JForStatement.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/src/jminusminus/JForStatement.java" title="JForStatement.java" tooltip="j--/src/jminusminus/JForStatement.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JForStatement.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="530" selectionOffset="744" selectionTopPixel="462"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="17434" selectionTopPixel="9801"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Series.java" partName="Series.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/tests/pass/Series.java" title="Series.java" tooltip="j--/tests/pass/Series.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/pass/Series.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="77"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JForStatement.java" partName="JForStatement.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/tests/pass/JForStatement.java" title="JForStatement.java" tooltip="j--/tests/pass/JForStatement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/tests/pass/JForStatement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="266" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JEnhancedForStatement.java" partName="JEnhancedForStatement.java" path="/home/xavier/Dev/LINGI2132/lingi2132/Assignment2/j--/src/jminusminus/JEnhancedForStatement.java" title="JEnhancedForStatement.java" tooltip="j--/src/jminusminus/JEnhancedForStatement.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1206" selectionTopPixel="389"/>
 </editor>
 </editors>
 <views>
@@ -113,7 +113,7 @@
 <view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
 <view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -233,162 +233,161 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JForStatement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JIfStatement.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/JForStatement.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/Parser.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JConditionalExpression.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JForStatement.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/j--/tests/pass/JForStatement.java"/>
 </editors>
-<item historyLabel="JForStatement.java" index="0">
-<position info="not_deleted" x="313" y="0"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="166" y="3"/>
-</item>
-<item historyLabel="JForStatement.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="298" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="18230" y="6"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="5007" y="7"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="508" y="7"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="1475" y="3"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="845" y="6"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="508" y="7"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="1475" y="3"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="4408" y="14"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="4576" y="5"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="5007" y="7"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="5997" y="27"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="6883" y="12"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="6997" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="9322" y="19"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="508" y="7"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="15997" y="9"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="23868" y="19"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="15997" y="9"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="298" y="0"/>
-</item>
-<item historyLabel="JIfStatement.java" index="2">
-<position info="not_deleted" x="131" y="0"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="131" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="15997" y="9"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="17935" y="16"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="18395" y="15"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="283" y="0"/>
-</item>
-<item historyLabel="JForStatement.java" index="0">
-<position info="not_deleted" x="744" y="530"/>
-</item>
-<item historyLabel="JEnhancedForStatement.java" index="1">
-<position info="not_deleted" x="650" y="0"/>
-</item>
-<item historyLabel="JForStatement.java" index="0">
-<position info="not_deleted" x="744" y="530"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="18395" y="15"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="16970" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="16992" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="17051" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="17898" y="0"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position info="not_deleted" x="17038" y="3"/>
-</item>
-<item historyLabel="Parser.java" index="4">
-<position/>
-</item>
-<item historyLabel="JConditionalExpression.java" index="5">
+<item historyLabel="JConditionalExpression.java" index="1">
 <position info="not_deleted" x="300" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="16045" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="17609" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="16116" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="17083" y="0"/>
 </item>
-<item historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="17090" y="0"/>
 </item>
-<item active="true" historyLabel="Parser.java" index="4">
+<item historyLabel="Parser.java" index="0">
 <position info="not_deleted" x="16136" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17346" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17353" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17533" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="2">
+<position info="not_deleted" x="744" y="530"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="725" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17477" y="0"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="725" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17477" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17417" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17475" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17533" y="0"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="725" y="0"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="1208" y="0"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="1147" y="1"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="1172" y="0"/>
+</item>
+<item historyLabel="JEnhancedForStatement.java" index="3">
+<position info="not_deleted" x="1208" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="17533" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="4819" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="4849" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="4973" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="5007" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16411" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16375" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="2">
+<position info="not_deleted" x="744" y="530"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="312" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="312" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16375" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="4892" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="312" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16345" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="2">
+<position info="not_deleted" x="744" y="530"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16345" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="2">
+<position info="not_deleted" x="744" y="530"/>
+</item>
+<item historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16345" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="144" y="0"/>
+</item>
+<item historyLabel="JForStatement.java" index="4">
+<position info="not_deleted" x="266" y="0"/>
+</item>
+<item active="true" historyLabel="Parser.java" index="0">
+<position info="not_deleted" x="16345" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -410,25 +409,24 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
-<trimItem IMemento.internal.id="org.eclipse.ui.internal.ViewStack@48bc9d01"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JEnhancedForStatement.java" tooltip="j--/src/jminusminus/JEnhancedForStatement.java">
+<persistable path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JForStatement.java" tooltip="j--/tests/pass/JForStatement.java">
+<persistable path="/j--/tests/pass/JForStatement.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Series.java" tooltip="j--/tests/pass/Series.java">
 <persistable path="/j--/tests/pass/Series.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JForStatement.java" tooltip="j--/src/jminusminus/JForStatement.java">
 <persistable path="/j--/src/jminusminus/JForStatement.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JEnhancedForStatement.java" tooltip="j--/src/jminusminus/JEnhancedForStatement.java">
-<persistable path="/j--/src/jminusminus/JEnhancedForStatement.java"/>
-</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JIfStatement.java" tooltip="j--/src/jminusminus/JIfStatement.java">
 <persistable path="/j--/src/jminusminus/JIfStatement.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="JForStatement.java" tooltip="j--/tests/pass/JForStatement.java">
-<persistable path="/j--/tests/pass/JForStatement.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Parser.java" tooltip="j--/src/jminusminus/Parser.java">
 <persistable path="/j--/src/jminusminus/Parser.java"/>
