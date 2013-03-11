@@ -1,9 +1,0 @@
-package pass;
-
-public class ConditionalExpression
-{
-	public int conditionalExpression(boolean condition, int x, int y)
-	{
-		condition ? return x : return y;
-	}
-}
