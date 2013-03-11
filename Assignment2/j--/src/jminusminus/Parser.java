@@ -1023,8 +1023,7 @@ public class Parser {
 				|| expr instanceof JMessageExpression
 				|| expr instanceof JSuperConstruction
 				|| expr instanceof JThisConstruction || expr instanceof JNewOp
-				|| expr instanceof JNewArrayOp
-				|| expr instanceof JConditionalExpression) {
+				|| expr instanceof JNewArrayOp) {
 			// So as not to save on stack
 			expr.isStatementExpression = true;
 		} else {
@@ -1093,7 +1092,7 @@ public class Parser {
 		if (have(QM)) {
 			JExpression thenPart = assignmentExpression() ;
 			mustBe(COLON);
-			lhs = new JConditionalExpression(line, lhs, thenPart, assignmentExpression());
+			lhs = new JConditionalExpression(line, lhs, thenPart, conditionalExpression());
 		}
 		return lhs;
 	}
