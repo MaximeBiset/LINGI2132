@@ -26,7 +26,6 @@ public class JConditionalExpression extends JExpression {
 
 	}
 
-	@Override
 	public void writeToStdOut(PrettyPrinter p)
 	{	
         p.printf("<JConditionalExpression line=\"%d\">\n", line());

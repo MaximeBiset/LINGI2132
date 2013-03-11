@@ -660,6 +660,21 @@ public class Parser {
 		int line = scanner.token().line();
 		if (see(LCURLY)) {
 			return block();
+		} else if(have(FOR)) {
+			mustBe(LPAREN);
+			JForInitExpression init;
+			if(seeLocalVariableDeclaration()) {
+				init = new JForInitExpression(line, localVariableDeclarationStatement());
+			} else {			
+				init = new JForInitExpression(line, statementExpression());
+				mustBe(SEMI);
+			}
+			JExpression expr = expression();
+			mustBe(SEMI);
+			JForUpdateExpression update = new JForUpdateExpression(line, statementExpression());
+			mustBe(RPAREN);
+			JStatement statement = statement();
+			return new JForStatement(line, init, expr, update, statement);
 		} else if (have(IF)) {
 			JExpression test = parExpression();
 			JStatement consequent = statement();
@@ -1123,6 +1138,10 @@ public class Parser {
 			return new JGreaterThanOp(line, lhs, additiveExpression());
 		} else if (have(LE)) {
 			return new JLessEqualOp(line, lhs, additiveExpression());
+		} else if (have(LT)) {
+			return new JLessThanOp(line, lhs, additiveExpression());
+		} else if (have(GE)) {
+			return new JGreaterEqualOp(line, lhs, additiveExpression());
 		} else if (have(INSTANCEOF)) {
 			return new JInstanceOfOp(line, lhs, referenceType());
 		} else {

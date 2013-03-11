@@ -1,0 +1,23 @@
+package jminusminus;
+
+public class JForStatement extends JStatement {
+
+	@Override
+	public JAST analyze(Context context) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void codegen(CLEmitter output) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void writeToStdOut(PrettyPrinter p) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -80,6 +80,7 @@ class Scanner {
         reserved.put(TRUE.image(), TRUE);
         reserved.put(VOID.image(), VOID);
         reserved.put(WHILE.image(), WHILE);
+        reserved.put(FOR.image(), FOR);
 
         // Prime the pump.
         nextCh();
@@ -194,15 +195,19 @@ class Scanner {
             }
         case '>':
             nextCh();
-            return new TokenInfo(GT, line);
+            if (ch == '=') {
+            	nextCh();
+            	return new TokenInfo(GE, line);
+            } else {       
+            	return new TokenInfo(GT, line);
+            }
         case '<':
             nextCh();
             if (ch == '=') {
                 nextCh();
                 return new TokenInfo(LE, line);
             } else {
-                reportScannerError("Operator < is not supported in j--.");
-                return getNextToken();
+                return new TokenInfo(LT, line);
             }
         case '?':
         	nextCh();

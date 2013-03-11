@@ -1,0 +1,14 @@
+package pass;
+
+public class Comparison
+{
+	public boolean greaterEqual(int x, int y)
+	{
+		return x >= y;
+	}
+	
+	public boolean lessThan(in x, int y)
+	{
+		return x < y;
+	}
+}

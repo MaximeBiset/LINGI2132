@@ -1,0 +1,30 @@
+package junit;
+
+import junit.framework.TestCase;
+import pass.*
+
+public class ComparisonTest extends TestCase
+{
+	Comparison comparison;
+	
+	public void setUp()
+	{
+		super.setUp();
+		comparison = new Comparison();
+	}
+	
+	public void tearDown()
+	{
+		super.tearDown();
+	}
+	
+	public void testComparison()
+	{
+		assertEquals(comparison.greaterEqual(42, 0), true);
+		assertEquals(comparison.greaterEqual(42, 42), true);
+		assertEquals(comparison.greaterEqual(0, 42), false);
+		assertEquals(comparison.lessThan(42, 0), false);
+		assertEquals(comparison.lessThan(0, 42), true);
+		assertEquals(comparison.lessThan(42, 42), false);
+	}
+}
