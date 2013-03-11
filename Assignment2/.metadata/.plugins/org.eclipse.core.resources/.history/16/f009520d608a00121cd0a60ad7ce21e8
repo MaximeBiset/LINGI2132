@@ -169,6 +169,20 @@ public class Parser {
 		scanner.returnToPosition();
 		return result;
 	}
+	
+	private boolean seeQM()
+	{
+		scanner.recordPosition();
+		boolean result = false;
+		while(!see(SEMI) && !result) {
+			if(see(QM)) {
+				result = true;
+			}
+			scanner.next();
+		}
+		scanner.returnToPosition();
+		return result;
+	}
 
 	/**
 	 * Are we looking at a cast? ie.
@@ -325,6 +339,7 @@ public class Parser {
 		scanner.returnToPosition();
 		return result;
 	}
+	
 
 	// ////////////////////////////////////////////////
 	// Parser Proper /////////////////////////////////
@@ -643,8 +658,21 @@ public class Parser {
 
 	private JStatement statement() {
 		int line = scanner.token().line();
-		if (see(LCURLY)) {
-			return block();
+		if (have(FOR)) {
+			mustBe(LPAREN);
+			JForInitExpression init;
+			if(seeLocalVariableDeclaration()) {
+				init = new JForInitExpression(line, localVariableDeclarationStatement());
+			} else {			
+				init = new JForInitExpression(line, statementExpression());
+				mustBe(SEMI);
+			}
+			JExpression expr = expression();
+			mustBe(SEMI);
+			JForUpdateExpression update = new JForUpdateExpression(line, statementExpression());
+			mustBe(RPAREN);
+			JStatement statement = statement();
+			return new JForStatement(line, init, expr, update, statement);
 		} else if (have(IF)) {
 			JExpression test = parExpression();
 			JStatement consequent = statement();
@@ -670,7 +698,16 @@ public class Parser {
 			return statement;
 		}
 	}
+	
+	public JEnhancedForStatement enhancedForStatement()
+	{
+		return null;
+	}
 
+	public JForStatement forStatement()
+	{	
+		return null;
+	}
 	/**
 	 * Parse formal parameters.
 	 * 
@@ -730,7 +767,7 @@ public class Parser {
 		mustBe(RPAREN);
 		return expr;
 	}
-
+	
 	/**
 	 * Parse a local variable declaration statement.
 	 * 
@@ -957,7 +994,8 @@ public class Parser {
 				|| expr instanceof JMessageExpression
 				|| expr instanceof JSuperConstruction
 				|| expr instanceof JThisConstruction || expr instanceof JNewOp
-				|| expr instanceof JNewArrayOp) {
+				|| expr instanceof JNewArrayOp
+				|| expr instanceof JConditionalExpression) {
 			// So as not to save on stack
 			expr.isStatementExpression = true;
 		} else {
@@ -999,7 +1037,11 @@ public class Parser {
 	private JExpression assignmentExpression() {
 		int line = scanner.token().line();
 		JExpression lhs = conditionalAndExpression();
-		if (have(ASSIGN)) {
+		if (have(QM)) {
+			JExpression thenPart = assignmentExpression() ;
+			mustBe(COLON);
+			return new JConditionalExpression(line, lhs, thenPart, assignmentExpression());
+		}else if (have(ASSIGN)) {
 			return new JAssignOp(line, lhs, assignmentExpression());
 		} else if (have(PLUS_ASSIGN)) {
 			return new JPlusAssignOp(line, lhs, assignmentExpression());
@@ -1021,15 +1063,15 @@ public class Parser {
 
 	private JExpression conditionalExpression() {
 		int line = scanner.token().line();
-		boolean more = true;
-		JExpression lhs = conditionalAndExpression();
-		while (more) {
-			if (have(QM)) {
-				lhs = new JConditionalExpression(line, lhs, assignmentExpression(), conditionalExpression());
-
-			} else {
-				more = false;
-			}
+		JExpression lhs;
+		if (seeQM()) {
+			lhs = conditionalAndExpression();
+			mustBe(QM);
+			JExpression thenPart = assignmentExpression() ;
+			mustBe(COLON);
+			lhs = new JConditionalExpression(line, lhs, thenPart, conditionalExpression());
+		} else {
+			lhs = conditionalAndExpression();
 		}
 		return lhs;
 	}
@@ -1103,6 +1145,10 @@ public class Parser {
 			return new JGreaterThanOp(line, lhs, additiveExpression());
 		} else if (have(LE)) {
 			return new JLessEqualOp(line, lhs, additiveExpression());
+		} else if (have(LT)) {
+			return new JLessThanOp(line, lhs, additiveExpression());
+		} else if (have(GE)) {
+			return new JGreaterEqualOp(line, lhs, additiveExpression());
 		} else if (have(INSTANCEOF)) {
 			return new JInstanceOfOp(line, lhs, referenceType());
 		} else {

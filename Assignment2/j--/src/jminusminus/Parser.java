@@ -661,20 +661,7 @@ public class Parser {
 		if (see(LCURLY)) {
 			return block();
 		} else if(have(FOR)) {
-			mustBe(LPAREN);
-			JForInitExpression init;
-			if(seeLocalVariableDeclaration()) {
-				init = new JForInitExpression(line, localVariableDeclarationStatement());
-			} else {			
-				init = new JForInitExpression(line, statementExpression());
-				mustBe(SEMI);
-			}
-			JExpression expr = expression();
-			mustBe(SEMI);
-			JForUpdateExpression update = new JForUpdateExpression(line, statementExpression());
-			mustBe(RPAREN);
-			JStatement statement = statement();
-			return new JForStatement(line, init, expr, update, statement);
+			return forStatement();
 		} else if (have(IF)) {
 			JExpression test = parExpression();
 			JStatement consequent = statement();
@@ -700,7 +687,30 @@ public class Parser {
 			return statement;
 		}
 	}
+	
+	public JEnhancedForStatement enhancedForStatement()
+	{
+		return null;
+	}
 
+	public JForStatement forStatement()
+	{
+		int line = scanner.token().line();
+		mustBe(LPAREN);
+		JForInitExpression init;
+		if(seeLocalVariableDeclaration()) {
+			init = new JForInitExpression(line, localVariableDeclarationStatement());
+		} else {			
+			init = new JForInitExpression(line, statementExpression());
+			mustBe(SEMI);
+		}
+		JExpression expr = expression();
+		mustBe(SEMI);
+		JForUpdateExpression update = new JForUpdateExpression(line, statementExpression());
+		mustBe(RPAREN);
+		JStatement statement = statement();
+		return new JForStatement(line, init, expr, update, statement);
+	}
 	/**
 	 * Parse formal parameters.
 	 * 
