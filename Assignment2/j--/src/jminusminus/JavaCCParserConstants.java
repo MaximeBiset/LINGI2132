@@ -38,27 +38,31 @@ public interface JavaCCParserConstants {
   int LAND = 44;
   int LE = 45;
   int LNOT = 46;
-  int MINUS = 47;
-  int PLUS_ASSIGN = 48;
-  int STAR = 49;
-  int LPAREN = 50;
-  int RPAREN = 51;
-  int LCURLY = 52;
-  int RCURLY = 53;
-  int LBRACK = 54;
-  int RBRACK = 55;
-  int SEMI = 56;
-  int COMMA = 57;
-  int DOT = 58;
-  int IDENTIFIER = 59;
-  int LETTER = 60;
-  int DIGIT = 61;
-  int NON_ZERO_DIGIT = 62;
-  int INT_LITERAL = 63;
-  int CHAR_LITERAL = 64;
-  int STRING_LITERAL = 65;
-  int ESC = 66;
-  int ERROR = 67;
+  int QM = 47;
+  int MINUS = 48;
+  int PLUS_ASSIGN = 49;
+  int STAR = 50;
+  int GE = 51;
+  int LT = 52;
+  int LPAREN = 53;
+  int RPAREN = 54;
+  int LCURLY = 55;
+  int RCURLY = 56;
+  int LBRACK = 57;
+  int RBRACK = 58;
+  int SEMI = 59;
+  int COLON = 60;
+  int COMMA = 61;
+  int DOT = 62;
+  int IDENTIFIER = 63;
+  int LETTER = 64;
+  int DIGIT = 65;
+  int NON_ZERO_DIGIT = 66;
+  int INT_LITERAL = 67;
+  int CHAR_LITERAL = 68;
+  int STRING_LITERAL = 69;
+  int ESC = 70;
+  int ERROR = 71;
 
   int DEFAULT = 0;
   int COMMENT = 1;
@@ -112,9 +116,12 @@ public interface JavaCCParserConstants {
     "\"&&\"",
     "\"<=\"",
     "\"!\"",
+    "\"?\"",
     "\"-\"",
     "\"+=\"",
     "\"*\"",
+    "\">=\"",
+    "\"<\"",
     "\"(\"",
     "\")\"",
     "\"{\"",
@@ -122,6 +129,7 @@ public interface JavaCCParserConstants {
     "\"[\"",
     "\"]\"",
     "\";\"",
+    "\":\"",
     "\",\"",
     "\".\"",
     "<IDENTIFIER>",

@@ -201,7 +201,7 @@ TOKEN:
 | < LAND: "&&" >
 | < LE: "<=" >
 | < LNOT: "!" >
-| < QM: "?">
+| < QM: "?" >
 | < MINUS: "-" >
 | < PLUS_ASSIGN: "+=" >
 | < STAR: "*" >
@@ -1166,7 +1166,7 @@ private JExpression assignmentExpression(): {
 }
 {
     try {
-        lhs = conditionalAndExpression() { line = lhs.line(); }
+        lhs = conditionalExpression() { line = lhs.line(); }
         [       
             <ASSIGN> 
             rhs = assignmentExpression()
@@ -1178,6 +1178,27 @@ private JExpression assignmentExpression(): {
     } 
     catch ( ParseException e ) { 
         recoverFromError( new int[] { SEMI, EOF }, e ); 
+    }
+    { return lhs; }
+}
+
+private JExpression conditionalExpression(): {
+    int line = 0;
+    JExpression lhs = null, thenPart = null, elsePart = null;
+}
+{
+    try {
+        lhs = conditionalAndExpression() { line = lhs.line(); }
+        [   
+            <QM>
+            thenPart = assignmentExpression() { line = lhs.line(); }
+            <COLON>
+            elsePart = conditionalExpression() { line = lhs.line(); }
+            { lhs = new JConditionalExpression( line, lhs, thenPart, elsePart ); }
+        ]
+    }
+    catch ( ParseException e ) {
+        recoverFromError( new int[] {SEMI, EOF}, e);
     }
     { return lhs; }
 }
