@@ -201,9 +201,12 @@ TOKEN:
 | < LAND: "&&" >
 | < LE: "<=" >
 | < LNOT: "!" >
+| < QM: "?">
 | < MINUS: "-" >
 | < PLUS_ASSIGN: "+=" >
 | < STAR: "*" >
+| < GE: ">=" >
+| < LT: "<" >
 }
 
 // Separators (these could be combined with the reserved words)
@@ -216,6 +219,7 @@ TOKEN:
 | < LBRACK: "[" >
 | < RBRACK: "]" >
 | < SEMI: ";" >
+| < COLON: ":">
 | < COMMA: "," >
 | < DOT: "." >
 }

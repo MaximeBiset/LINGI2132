@@ -1065,12 +1065,8 @@ public class Parser {
 
 	private JExpression assignmentExpression() {
 		int line = scanner.token().line();
-		JExpression lhs = conditionalAndExpression();
-		if (have(QM)) {
-			JExpression thenPart = assignmentExpression() ;
-			mustBe(COLON);
-			return new JConditionalExpression(line, lhs, thenPart, assignmentExpression());
-		}else if (have(ASSIGN)) {
+		JExpression lhs = conditionalExpression();
+		if (have(ASSIGN)) {
 			return new JAssignOp(line, lhs, assignmentExpression());
 		} else if (have(PLUS_ASSIGN)) {
 			return new JPlusAssignOp(line, lhs, assignmentExpression());
@@ -1090,17 +1086,14 @@ public class Parser {
 	 * @return an AST for a contionalExpression
 	 */
 
-	private JExpression conditionalExpression() {
+	private JExpression conditionalExpression() 
+	{
 		int line = scanner.token().line();
-		JExpression lhs;
-		if (seeQM()) {
-			lhs = conditionalAndExpression();
-			mustBe(QM);
+		JExpression lhs = conditionalAndExpression();
+		if (have(QM)) {
 			JExpression thenPart = assignmentExpression() ;
 			mustBe(COLON);
-			lhs = new JConditionalExpression(line, lhs, thenPart, conditionalExpression());
-		} else {
-			lhs = conditionalAndExpression();
+			lhs = new JConditionalExpression(line, lhs, thenPart, assignmentExpression());
 		}
 		return lhs;
 	}
