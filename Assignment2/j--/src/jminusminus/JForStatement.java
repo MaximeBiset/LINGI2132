@@ -1,18 +1,20 @@
 package jminusminus;
 
+import java.util.ArrayList;
+
 public class JForStatement extends JStatement {
 	
-	JForInitExpression init;
-	JForUpdateExpression update;
+	ArrayList<JAST> forInit;
+	ArrayList<JStatement> forUpdate;
 	JExpression expression;
 	JStatement statement;
 	
 
-	protected JForStatement(int line, JForInitExpression init, JExpression expression, JForUpdateExpression update, JStatement statement) 
+	protected JForStatement(int line, ArrayList<JAST> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
 	{
 		super(line);
-		this.init = init;
-		this.update = update;
+		this.forInit = forInit;
+		this.forUpdate = forUpdate;
 		this.statement = statement;
 		this.expression = expression;
 		// TODO Auto-generated constructor stub
@@ -35,13 +37,23 @@ public class JForStatement extends JStatement {
 	{
         p.printf("<JForStatement line=\"%d\">\n", line());
         p.indentRight();
-        init.writeToStdOut(p);
+        p.printf("<ForInit>\n");
+        p.indentRight();
+        for(JAST init : forInit)
+        	init.writeToStdOut(p);
+        p.indentLeft();
+        p.printf("</ForInit>\n");
         p.printf("<JExpression>\n");
         p.indentRight();
         expression.writeToStdOut(p);
         p.indentLeft();
         p.printf("</JExpression>\n");
-        update.writeToStdOut(p);
+        p.printf("<ForUpdate>\n");
+        p.indentRight();
+        for(JStatement update : forUpdate)
+        	update.writeToStdOut(p);
+        p.printf("</ForUpdate>\n");
+        p.indentLeft();
         p.printf("<JStatement>\n");
         p.indentRight();
         statement.writeToStdOut(p);
@@ -52,74 +64,4 @@ public class JForStatement extends JStatement {
 
 	}
 
-}
-
-class JForInitExpression extends JExpression
-{
-	JStatement expression;
-
-	protected JForInitExpression(int line, JStatement expression) 
-	{
-		super(line);
-		this.expression = expression;
-	}
-
-	@Override
-	public JExpression analyze(Context context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void codegen(CLEmitter output) {
-        
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void writeToStdOut(PrettyPrinter p)
-	{
-		p.printf("<JForInitExpression line=\"%d\">\n", line());
-        p.indentRight();
-        expression.writeToStdOut(p);
-        p.indentLeft();
-        p.printf("</JForInitExpression\n");
-		
-	}
-	
-}
-
-class JForUpdateExpression extends JExpression
-{
-	JStatement expression;
-	
-	protected JForUpdateExpression(int line, JStatement expression)
-	{
-		super(line);
-		this.expression = expression;
-	}
-
-	@Override
-	public JExpression analyze(Context context) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void codegen(CLEmitter output) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void writeToStdOut(PrettyPrinter p)
-	{
-		p.printf("<JForUpdateExpression line=\"%d\">\n", line());
-        p.indentRight();
-        expression.writeToStdOut(p);
-        p.indentLeft();
-        p.printf("</JForUpdateExpression\n");		
-	}
-	
 }

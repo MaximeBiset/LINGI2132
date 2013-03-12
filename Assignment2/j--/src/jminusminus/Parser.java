@@ -169,20 +169,9 @@ public class Parser {
 		scanner.returnToPosition();
 		return result;
 	}
-	
-	private boolean seeQM()
-	{
-		scanner.recordPosition();
-		boolean result = false;
-		while(!see(SEMI) && !result) {
-			if(see(QM)) {
-				result = true;
-			}
-			scanner.next();
-		}
-		scanner.returnToPosition();
-		return result;
-	}
+	/**
+	 * @return true iff we're looking at an enhanced for loop; false otherwise
+	 */
 
 	public boolean isEnhancedFor()
 	{
@@ -678,7 +667,7 @@ public class Parser {
 				return enhancedForStatement();
 			}
 			else {
-				return forStatement();
+				return basicForStatement();
 			}
 		} else if (have(IF)) {
 			JExpression test = parExpression();
@@ -706,6 +695,13 @@ public class Parser {
 		}
 	}
 	
+	/**
+	 * Parse an enhanced for statement
+	 * <pre>
+	 * 		EnhancedForStatement ::= for ( FormalParameter : Expression ) Statement
+	 * </pre>
+	 * @return an AST node for an enhancedForStatement
+	 */
 	public JEnhancedForStatement enhancedForStatement()
 	{
 		int line = scanner.token().line();
@@ -718,24 +714,72 @@ public class Parser {
 		return new JEnhancedForStatement(line, param, expression, statement);
 		
 	}
+	
+	/**
+	 * Parse a basic for statement
+	 * <pre>
+	 * 		basicForStatement ::= for ( [forInit] ; [expression] ; [forUpdate] ) statement
+	 * </pre>
+	 * @return an AST node for a basicForStatement
+	 */
 
-	public JForStatement forStatement()
+	public JForStatement basicForStatement()
 	{
 		int line = scanner.token().line();
 		mustBe(LPAREN);
-		JForInitExpression init;
-		if(seeLocalVariableDeclaration()) {
-			init = new JForInitExpression(line, localVariableDeclarationStatement());
-		} else {			
-			init = new JForInitExpression(line, statementExpression());
-			mustBe(SEMI);
-		}
+		ArrayList<JAST> init = forInit();
 		JExpression expr = expression();
 		mustBe(SEMI);
-		JForUpdateExpression update = new JForUpdateExpression(line, statementExpression());
+		ArrayList<JStatement> update = forUpdate();
 		mustBe(RPAREN);
 		JStatement statement = statement();
 		return new JForStatement(line, init, expr, update, statement);
+	}
+	
+	/**
+	 * Parse a forInit statement
+	 * 
+     * <pre>
+     *   forInit ::= statementExpression {, statementExpression}
+     *                          | [final] type variableDeclarators
+     * </pre>
+     * 
+	 * @return an AST for a forInit
+	 */
+	
+	public ArrayList<JAST> forInit()
+	{
+		ArrayList<JAST> forInit = new ArrayList<JAST>();
+		if(seeLocalVariableDeclaration()) {
+			forInit.add(localVariableDeclarationStatement());
+		} else {
+			do {
+				forInit.add(statementExpression());
+			} while(have(COMMA));
+			mustBe(SEMI);
+		}
+		return forInit;
+		
+	}
+	/**
+	 * Parse a forUpdate Statement
+	 * 
+     * <pre>
+     *   forInit ::= statementExpression {, statementExpression}
+     *                          | [final] type variableDeclarators
+     * </pre>
+     * 
+     * @return an AST for a forUpdate
+     * 
+	 */
+	
+	public ArrayList<JStatement> forUpdate()
+	{
+		 ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
+		 do {
+			 forUpdate.add(statementExpression());
+		 } while(have(COMMA));
+		 return forUpdate;
 	}
 	/**
 	 * Parse formal parameters.
