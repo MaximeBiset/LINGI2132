@@ -260,6 +260,8 @@ public class Parser {
 			}
 		} else if (seeBasicType()) {
 			scanner.next();
+		} else if (have(FINAL)) {
+			scanner.next();
 		} else {
 			scanner.returnToPosition();
 			return false;
@@ -856,6 +858,8 @@ public class Parser {
 	private JVariableDeclaration localVariableDeclarationStatement() {
 		int line = scanner.token().line();
 		ArrayList<String> mods = new ArrayList<String>();
+		if(have(FINAL))
+			mods.add("FINAL");
 		ArrayList<JVariableDeclarator> vdecls = variableDeclarators(type());
 		mustBe(SEMI);
 		return new JVariableDeclaration(line, mods, vdecls);

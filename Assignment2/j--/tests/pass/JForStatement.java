@@ -10,7 +10,7 @@ public class JForStatement
 		for(i = 0; i < 4; i += 1){
 			System.out.println(i);
 		}
-		for(int j = 0; j < 5; j += 1) {
+		for(final int j = 0; j < 5; j += 1) {
 			System.out.println(j);
 		}
 		for(int k : a) {
