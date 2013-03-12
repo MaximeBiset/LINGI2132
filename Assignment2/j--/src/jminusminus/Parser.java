@@ -812,7 +812,7 @@ public class Parser {
 	 * Parse a formal parameter.
 	 * 
 	 * <pre>
-	 *   formalParameter ::= type IDENTIFIER
+	 *   formalParameter ::= [final] type IDENTIFIER
 	 * </pre>
 	 * 
 	 * @return an AST for a formalParameter.
@@ -820,10 +820,13 @@ public class Parser {
 
 	private JFormalParameter formalParameter() {
 		int line = scanner.token().line();
+		ArrayList<String> mods = new ArrayList<String>();
+		if(have(FINAL))
+			mods.add("FINAL");
 		Type type = type();
 		mustBe(IDENTIFIER);
 		String name = scanner.previousToken().image();
-		return new JFormalParameter(line, name, type);
+		return new JFormalParameter(line, name, type, mods);
 	}
 
 	/**

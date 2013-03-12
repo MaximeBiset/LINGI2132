@@ -2,6 +2,8 @@
 
 package jminusminus;
 
+import java.util.ArrayList;
+
 /**
  * The AST node for a formal parameter declaration. All analysis and code
  * generation is done in a parent AST.
@@ -14,6 +16,9 @@ class JFormalParameter extends JAST {
 
     /** Parameter type. */
     private Type type;
+    
+    /** Modifiers. **/
+    private ArrayList<String> mods;
 
     /**
      * Construct an AST node for a formal parameter declaration given its line
@@ -27,10 +32,11 @@ class JFormalParameter extends JAST {
      *            parameter type.
      */
 
-    public JFormalParameter(int line, String name, Type type) {
+    public JFormalParameter(int line, String name, Type type, ArrayList<String> mods) {
         super(line);
         this.name = name;
         this.type = type;
+        this.mods = mods;
     }
 
     /**
@@ -41,6 +47,10 @@ class JFormalParameter extends JAST {
 
     public String name() {
         return name;
+    }
+    
+    public ArrayList<String> mods() {
+    	return this.mods;
     }
 
     /**
@@ -98,6 +108,15 @@ class JFormalParameter extends JAST {
         p.printf("<JFormalParameter line=\"%d\" name=\"%s\" "
                 + "type=\"%s\"/>\n", line(), name, (type == null) ? "" : type
                 .toString());
+        if (mods != null) {
+            p.println("<Modifiers>");
+            p.indentRight();
+            for (String mod : mods) {
+                p.printf("<Modifier name=\"%s\"/>\n", mod);
+            }
+            p.indentLeft();
+            p.println("</Modifiers>");
+        }
     }
 
 }
