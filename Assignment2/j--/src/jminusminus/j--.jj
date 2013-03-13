@@ -712,14 +712,15 @@ private JStatement statement(): {
         { statement = new JReturnStatement( line, expr ); } |
         <SEMI> 
         { statement = new JEmptyStatement( line ); } |
-        <FOR> { line = token.beginLine; }
-        <LPAREN>
+        LOOKAHEAD(<FOR> <LPAREN> formalParameter() <COLON> expression() <RPAREN>) 
+            statement = enhancedForStatement()
+        /*<LPAREN>
         param = formalParameter()
         <COLON>
         expr = expression() 
         <RPAREN> 
-        statement = statement() 
-        { statement = new JEnhancedForStatement( line, param, expr, statement ); } |
+        statement = statement()
+        { statement = new JEnhancedForStatement( line, param, expr, statement ); }*/ |
         // Must be a statementExpression
         statement = statementExpression() 
         <SEMI>
@@ -751,7 +752,7 @@ private JStatement enhancedForStatement(): {
         <COLON>
         expr = expression()
         <RPAREN>
-        statement = statementExpression()
+        statement = statement()
         {statement = new JEnhancedForStatement( line, param, expr, statement ); }
     }
     catch ( ParseException e ) {
