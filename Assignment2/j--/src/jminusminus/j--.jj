@@ -721,6 +721,8 @@ private JStatement statement(): {
         <RPAREN> 
         statement = statement()
         { statement = new JEnhancedForStatement( line, param, expr, statement ); }*/ |
+        LOOKAHEAD(<FOR> <LPAREN> [forInit()])
+            statement = basicForStatement()|
         // Must be a statementExpression
         statement = statementExpression() 
         <SEMI>
@@ -782,7 +784,6 @@ private JStatement basicForStatement(): {
         [
             forInit = forInit()
         ]
-        <SEMI>
         [
             expr = expression()
         ]
@@ -791,7 +792,7 @@ private JStatement basicForStatement(): {
             forUpdate = forUpdate()
         ]
         <RPAREN>
-        statement = statementExpression()
+        statement = statement()
         { statement = new JForStatement( line, forInit, expr, forUpdate, statement ); }
     }
     catch ( ParseException e ) {
@@ -806,14 +807,13 @@ private JStatement basicForStatement(): {
  */
 
 private ArrayList<JAST> forInit(): {
-    int line = 0;
     ArrayList<JAST> init = new ArrayList<JAST>();
     JStatement statement = null;
     JVariableDeclaration varDecl = null;
 }
 {
     try {
-        LOOKAHEAD ( [<FINAL>] type() <IDENTIFIER> )
+        LOOKAHEAD ( [<FINAL>] type() variableDeclarators())
         (
             varDecl = localVariableDeclarationStatement()
             { init.add( varDecl ); }
@@ -827,6 +827,7 @@ private ArrayList<JAST> forInit(): {
                 <COMMA> statement = statementExpression()
                 { init.add( statement ); }
             )*
+            <SEMI>
         )
     }
     catch (ParseException e) {
@@ -842,7 +843,6 @@ private ArrayList<JAST> forInit(): {
  */
 
  private ArrayList<JStatement> forUpdate(): {
-    int line = 0;
     ArrayList<JStatement> update = new ArrayList<JStatement>();
     JStatement statement = null;
 }
