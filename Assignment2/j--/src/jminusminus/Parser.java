@@ -767,8 +767,7 @@ public class Parser {
 	 * Parse a forUpdate Statement
 	 * 
      * <pre>
-     *   forInit ::= statementExpression {, statementExpression}
-     *                          | [final] type variableDeclarators
+     *   forUpdate ::= StatementExpression {, StatementExpression}
      * </pre>
      * 
      * @return an AST for a forUpdate

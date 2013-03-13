@@ -731,6 +731,136 @@ private JStatement statement(): {
 }
 
 /**
+ * Parse an enhanced for statement.
+ * <pre>
+ *      EnhancedForStatement = (FormalParameter : Expression) Statement
+ * </pre>
+ */
+
+private JStatement enhancedForStatement(): {
+    int line = 0;
+    JStatement statement = null;
+    JFormalParameter param = null;
+    JExpression expr = null;
+}
+{
+    try {
+        <FOR>
+        <LPAREN>
+        param = formalParameter()
+        <COLON>
+        expr = expression()
+        <RPAREN>
+        statement = statementExpression()
+        {statement = new JEnhancedForStatement( line, param, expr, statement ); }
+    }
+    catch ( ParseException e ) {
+        recoverFromError( new int[] { SEMI, EOF}, e);
+    }
+    {return statement; }
+}
+
+/**
+ * Parse a basic for statement.
+ * <pre>
+ *  BasicForStatement = ( [ForInit] ; [expression] ; [ForUpdate] ) Statement
+ * </pre>
+ *
+ */
+private JStatement basicForStatement(): {
+    int line = 0;
+    ArrayList<JAST> forInit = new ArrayList<JAST>();
+    JExpression expr = null;
+    JStatement statement = null;
+    ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
+}
+{
+    try {
+        <FOR>
+        <LPAREN>
+        [
+            forInit = forInit()
+        ]
+        <SEMI>
+        [
+            expr = expression()
+        ]
+        <SEMI>
+        [
+            forUpdate = forUpdate()
+        ]
+        <RPAREN>
+        statement = statementExpression()
+        { statement = new JForStatement( line, forInit, expr, forUpdate, statement ); }
+    }
+    catch ( ParseException e ) {
+        recoverFromError( new int[] { SEMI, EOF}, e);
+    }
+    {return statement; }
+}
+/**
+ * Parse a forInit Statement
+ * forInit ::= statementExpression {, statementExpression}
+ *                          | [final] type variableDeclarators
+ */
+
+private ArrayList<JAST> forInit(): {
+    int line = 0;
+    ArrayList<JAST> init = new ArrayList<JAST>();
+    JStatement statement = null;
+    JVariableDeclaration varDecl = null;
+}
+{
+    try {
+        LOOKAHEAD ( [<FINAL>] type() <IDENTIFIER> )
+        (
+            varDecl = localVariableDeclarationStatement()
+            { init.add( varDecl ); }
+
+        )|
+        LOOKAHEAD ( statementExpression() (<COMMA> statementExpression() ))
+        (
+            statement = statementExpression()
+            { init.add( statement ); }
+            (
+                <COMMA> statement = statementExpression()
+                { init.add( statement ); }
+            )*
+        )
+    }
+    catch (ParseException e) {
+        recoverFromError( new int[] { SEMI, EOF }, e);
+    }
+    { return init; }
+}
+/**
+ * Parse a forUpdate Statement
+ * <pre>
+ *      forUpdate ::= statementExpression {, statementExpression}
+ * </pre>
+ */
+
+ private ArrayList<JStatement> forUpdate(): {
+    int line = 0;
+    ArrayList<JStatement> update = new ArrayList<JStatement>();
+    JStatement statement = null;
+}
+{
+    try{
+        statement = statementExpression()
+        { update.add( statement ); }
+        (
+            <COMMA>
+            statement = statementExpression()
+            { update.add( statement ); }
+        )*
+    }
+    catch (ParseException e) {
+        recoverFromError( new int[] { SEMI, EOF }, e);
+    }
+    { return update; }
+}
+/**
  * Parse formal parameters.
  * 
  * <pre>
@@ -827,7 +957,8 @@ private JExpression parExpression(): {
  * Parse a local variable declaration statement.
  * 
  * <pre>
- *   localVariableDeclarationStatement ::= type 
+ *   localVariableDeclarationStatement ::= [Modifier] 
+                                            type 
  *                                           variableDeclarators 
  *                                             SEMI
  * </pre>
@@ -843,6 +974,10 @@ private JVariableDeclaration localVariableDeclarationStatement(): {
 }
 {
     try {
+        [
+            <FINAL>
+            { mods.add( "FINAL" ) ; }
+        ]
         type = type() { line = token.beginLine; }
         vdecls = variableDeclarators( type ) <SEMI>
     } 
