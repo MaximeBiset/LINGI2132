@@ -444,6 +444,7 @@ public class Parser {
 		boolean scannedPRIVATE = false;
 		boolean scannedSTATIC = false;
 		boolean scannedABSTRACT = false;
+		boolean scannedFINAL = false;
 		boolean more = true;
 		while (more)
 			if (have(PUBLIC)) {
@@ -485,6 +486,11 @@ public class Parser {
 					reportParserError("Repeated modifier: abstract");
 				}
 				scannedABSTRACT = true;
+			} else if (have(FINAL)) {
+				mods.add("final");
+				if (scannedFINAL) {
+					reportParserError("Repeated modifier: abstract");
+				}
 			} else {
 				more = false;
 			}
