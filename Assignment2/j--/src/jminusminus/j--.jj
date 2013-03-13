@@ -187,6 +187,8 @@ TOKEN:
 | < TRUE: "true" >
 | < VOID: "void" >
 | < WHILE: "while" >
+| < FINAL: "final" >
+| < FOR: "for"  >
 }
 
 // Operators (these could be combined with the reserved words)
@@ -658,12 +660,14 @@ private JStatement blockStatement(): {
  * Parse a statement.
  * 
  * <pre>
- *   statement ::= block
+ *   statement ::= block 
  *               | IF parExpression statement [ELSE statement]
  *               | WHILE parExpression statement 
  *               | RETURN [expression] SEMI
  *               | SEMI 
  *               | statementExpression SEMI
+                 | FOR ( [ForInit] ; [Expression] ; [ForUpdate]) Statement
+                 | FOR ( FormalParameter : Expression ) Statement
  * </pre>
  * 
  * @return an AST for a statement.
@@ -677,6 +681,7 @@ private JStatement statement(): {
     JStatement alternate = null;
     JStatement body = null;
     JExpression expr = null;
+    JFormalParameter param = null;
 }
 {       
     try {
@@ -707,6 +712,14 @@ private JStatement statement(): {
         { statement = new JReturnStatement( line, expr ); } |
         <SEMI> 
         { statement = new JEmptyStatement( line ); } |
+        <FOR> { line = token.beginLine; }
+        <LPAREN>
+        param = formalParameter()
+        <COLON>
+        expr = expression() 
+        <RPAREN> 
+        statement = statement() 
+        { statement = new JEnhancedForStatement( line, param, expr, statement ); } |
         // Must be a statementExpression
         statement = statementExpression() 
         <SEMI>
@@ -758,7 +771,7 @@ private ArrayList<JFormalParameter> formalParameters(): {
  * Parse a formal parameter.
  * 
  * <pre>
- *   formalParameter ::= type IDENTIFIER
+ *   formalParameter ::= [final] type IDENTIFIER
  * </pre>
  * 
  * @return an AST for a formalParameter.
@@ -768,16 +781,22 @@ private JFormalParameter formalParameter(): {
     int line = 0;
     Type type = null;
     String name = "";
+    ArrayList<String> mods =
+        new ArrayList<String>();
 }
 {
     try {
+        [
+            <FINAL>
+             { mods.add( "FINAL" ); }
+        ]
         type = type() { line = token.beginLine; }
         <IDENTIFIER> { name = token.image; }
     } 
     catch ( ParseException e ) { 
         recoverFromError( new int[] { SEMI, EOF }, e ); 
     }
-    { return new JFormalParameter( line, name, type ); }
+    { return new JFormalParameter( line, name, type, mods ); }
 }
 
 /**
