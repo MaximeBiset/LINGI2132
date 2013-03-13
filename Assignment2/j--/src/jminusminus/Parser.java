@@ -725,7 +725,7 @@ public class Parser {
 	 * @return an AST node for a basicForStatement
 	 */
 
-	public JForStatement basicForStatement()
+	public JBasicForStatement basicForStatement()
 	{
 		int line = scanner.token().line();
 		mustBe(LPAREN);
@@ -735,7 +735,7 @@ public class Parser {
 		ArrayList<JStatement> update = forUpdate();
 		mustBe(RPAREN);
 		JStatement statement = statement();
-		return new JForStatement(line, init, expr, update, statement);
+		return new JBasicForStatement(line, init, expr, update, statement);
 	}
 	
 	/**

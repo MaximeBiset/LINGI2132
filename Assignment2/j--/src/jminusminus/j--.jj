@@ -207,8 +207,6 @@ TOKEN:
 | < MINUS: "-" >
 | < PLUS_ASSIGN: "+=" >
 | < STAR: "*" >
-| < GE: ">=" >
-| < LT: "<" >
 }
 
 // Separators (these could be combined with the reserved words)
@@ -666,8 +664,8 @@ private JStatement blockStatement(): {
  *               | RETURN [expression] SEMI
  *               | SEMI 
  *               | statementExpression SEMI
-                 | FOR ( [ForInit] ; [Expression] ; [ForUpdate]) Statement
-                 | FOR ( FormalParameter : Expression ) Statement
+                 | basicForStatement
+                 | enhancedForStatement
  * </pre>
  * 
  * @return an AST for a statement.
@@ -793,7 +791,7 @@ private JStatement basicForStatement(): {
         ]
         <RPAREN>
         statement = statement()
-        { statement = new JForStatement( line, forInit, expr, forUpdate, statement ); }
+        { statement = new JBasicForStatement( line, forInit, expr, forUpdate, statement ); }
     }
     catch ( ParseException e ) {
         recoverFromError( new int[] { SEMI, EOF}, e);

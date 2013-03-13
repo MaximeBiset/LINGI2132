@@ -13,5 +13,9 @@ public class JForStatement
 		for (final int j = 0; j > 0; j += 1) {
 			System.out.println(j);
 		}
+		
+		for(int a,b,c,d = 0; a = 0; b += 1) {
+			System.out.println(c);
+		}
 	}
 }
