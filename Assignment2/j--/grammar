@@ -40,7 +40,7 @@ formalParameters ::= LPAREN
                        [formalParameter {COMMA formalParameter}]
                      RPAREN
 
-formalParameter ::= type IDENTIFIER
+formalParameter ::= [final] type IDENTIFIER
 
 parExpression ::= LPAREN expression RPAREN
 
@@ -69,9 +69,10 @@ statementExpression ::= expression // but must have side-effect, eg i++
 
 expression ::= assignmentExpression
 
-assignmentExpression ::= conditionalAndExpression  // must be a valid lhs
+assignmentExpression ::= conditionalExpression  // must be a valid lhs
                            [(ASSIGN | PLUS_ASSIGN) assignmentExpression]
 
+conditionalExpression ::= conditionalAndExpression [? assignmentExpression : conditionalExpression]
 conditionalAndExpression ::= equalityExpression // level 10
                                {LAND equalityExpression}
 

@@ -371,7 +371,7 @@ private JAST typeDeclaration(): {
  * Parse modifiers.
  * 
  * <pre>
- *   modifiers ::= {PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT}
+ *   modifiers ::= {PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | FINAL }
  * </pre>
  * 
  * Check for duplicates, and conflicts among access modifiers (public,
@@ -387,6 +387,8 @@ private ArrayList<String> modifiers(): {
     boolean scannedPRIVATE = false;
     boolean scannedSTATIC = false;
     boolean scannedABSTRACT = false;
+    boolean scannedMODIFIER = false;
+    boolean scannedFINAL = false;
 }
 {
     try {
@@ -439,7 +441,15 @@ private ArrayList<String> modifiers(): {
                 reportParserError( "Repeated modifier: abstract" );
             }
             scannedABSTRACT = true;
-        } 
+        }
+        <FINAL>
+        {
+            mods.add("final");
+            if (scannedFINAL ) {
+                reportParserError( "Repeated modifier: final" );
+            }
+            scannedFINAL = true;
+        }
     )*                  
     } 
     catch ( ParseException e ) { 
@@ -917,7 +927,7 @@ private JFormalParameter formalParameter(): {
     try {
         [
             <FINAL>
-             { mods.add( "FINAL" ); }
+             { mods.add( "final" ); }
         ]
         type = type() { line = token.beginLine; }
         <IDENTIFIER> { name = token.image; }
@@ -975,7 +985,7 @@ private JVariableDeclaration localVariableDeclarationStatement(): {
     try {
         [
             <FINAL>
-            { mods.add( "FINAL" ) ; }
+            { mods.add( "final" ) ; }
         ]
         type = type() { line = token.beginLine; }
         vdecls = variableDeclarators( type ) <SEMI>
