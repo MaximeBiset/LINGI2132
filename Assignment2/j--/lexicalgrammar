@@ -9,6 +9,8 @@
 
 // Reserved words
 ABSTRACT    ::= "abstract"
+FINAL 		::= "final"
+FOR			::= "for"
 BOOLEAN     ::= "boolean"
 CHAR        ::= "char"
 CLASS       ::= "class"

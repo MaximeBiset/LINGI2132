@@ -9,7 +9,7 @@ qualifiedIdentifier ::= IDENTIFIER {DOT IDENTIFIER}
 
 typeDeclaration ::= modifiers classDeclaration
 
-modifiers ::= {PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT}
+modifiers ::= {PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | FINAL}
 
 classDeclaration ::= CLASS IDENTIFIER 
                        [EXTENDS qualifiedIdentifier] 
@@ -35,6 +35,12 @@ statement ::= block
             | RETURN [expression] SEMI
             | SEMI 
             | statementExpression SEMI
+            | for ([forInit] SEMI [expression] SEMI [forUpdate] statement
+            | for (formalParameter : expression ) statement 
+
+forInit ::= statementExpression {, statementExpression} | [final] type variableDeclarators
+
+forUpdate ::= statementExpression {, statementExpression}
 
 formalParameters ::= LPAREN 
                        [formalParameter {COMMA formalParameter}]
