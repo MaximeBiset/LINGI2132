@@ -37,7 +37,7 @@ public class JEnhancedForStatement extends JStatement {
         param.writeToStdOut(p);
         p.indentLeft();
         p.printf("</JFormalParameter>\n");
-        p.printf("<JExpressiont>\n");
+        p.printf("<JExpression>\n");
         p.indentRight();
         expression.writeToStdOut(p);
         p.indentLeft();

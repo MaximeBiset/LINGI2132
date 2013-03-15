@@ -428,7 +428,7 @@ public class Parser {
 	 * 
 	 * <pre>
 	 *   modifiers ::= {PUBLIC | PROTECTED | PRIVATE | STATIC | 
-	 *                  ABSTRACT}
+	 *                  ABSTRACT | FINAL}
 	 * </pre>
 	 * 
 	 * Check for duplicates, and conflicts among access modifiers (public,
@@ -733,12 +733,24 @@ public class Parser {
 
 	public JBasicForStatement basicForStatement()
 	{
+		ArrayList<JAST> init = new ArrayList<JAST>();
+		JExpression expr = null;
+		ArrayList<JStatement> update = new ArrayList<JStatement>();
 		int line = scanner.token().line();
 		mustBe(LPAREN);
-		ArrayList<JAST> init = forInit();
-		JExpression expr = expression();
+		if(!see(SEMI)) {
+			init = forInit();
+		}
+		else {
+			mustBe(SEMI);
+		}
+		if(!see(SEMI)) {
+			expr = expression();
+		}
 		mustBe(SEMI);
-		ArrayList<JStatement> update = forUpdate();
+		if(!see(RPAREN)) {
+			update = forUpdate();
+		}
 		mustBe(RPAREN);
 		JStatement statement = statement();
 		return new JBasicForStatement(line, init, expr, update, statement);
