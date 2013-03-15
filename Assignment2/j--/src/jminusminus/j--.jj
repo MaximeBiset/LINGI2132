@@ -721,15 +721,8 @@ private JStatement statement(): {
         <SEMI> 
         { statement = new JEmptyStatement( line ); } |
         LOOKAHEAD(<FOR> <LPAREN> formalParameter() <COLON> expression() <RPAREN>) 
-            statement = enhancedForStatement()
-        /*<LPAREN>
-        param = formalParameter()
-        <COLON>
-        expr = expression() 
-        <RPAREN> 
-        statement = statement()
-        { statement = new JEnhancedForStatement( line, param, expr, statement ); }*/ |
-        LOOKAHEAD(<FOR> <LPAREN> [forInit()])
+            statement = enhancedForStatement() |
+        LOOKAHEAD(<FOR> <LPAREN> [forInit()] <SEMI>)
             statement = basicForStatement()|
         // Must be a statementExpression
         statement = statementExpression() 
