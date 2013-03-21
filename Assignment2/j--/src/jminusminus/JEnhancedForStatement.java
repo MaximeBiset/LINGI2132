@@ -17,8 +17,10 @@ public class JEnhancedForStatement extends JStatement {
 
 	@Override
 	public JAST analyze(Context context) {
-		// TODO Auto-generated method stub
-		return null;
+		param.analyze(context);
+		expression.analyze(context);
+		statement.analyze(context);
+		return this;
 	}
 
 	@Override

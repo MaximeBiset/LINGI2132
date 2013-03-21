@@ -684,7 +684,7 @@ class JavaCCParser implements JavaCCParserConstants {
 
   final private JStatement basicForStatement() throws ParseException {
     int line = 0;
-    ArrayList<JAST> forInit = new ArrayList<JAST>();
+    ArrayList<JStatement> forInit = new ArrayList<JStatement>();
     JExpression expr = null;
     JStatement statement = null;
     ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
@@ -769,8 +769,8 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JAST> forInit() throws ParseException {
-    ArrayList<JAST> init = new ArrayList<JAST>();
+  final private ArrayList<JStatement> forInit() throws ParseException {
+    ArrayList<JStatement> init = new ArrayList<JStatement>();
     JStatement statement = null;
     JVariableDeclaration varDecl = null;
     try {
