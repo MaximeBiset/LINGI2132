@@ -1,0 +1,56 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listing}
+\author{Julien De Coster Xavier Crochet}
+\title{LINGI2132 Assignement 2 Report}
+\begin{document}
+\maketitle
+\section{Multi Line Comments}
+\subsection{Handwritten scanner}
+Add, in the '/' case, that if another '*' is scanned, we have to skip all the characters until we scan '*/'. 
+\subsection{JavaCC generated scanner}
+Add in the j--.jj file a grammar rule that switch in the state \textit{multiline} if '/*' is encountered. We move from this state only if '/*' is scanned. 
+\section{Conditional Expression}
+\subsection{Implementation}
+We add the \textit{QM '?'} token and the \textit{COLON  ':'} one, create a class JConditionalExpression and only implements the constructor and the writeToStdOut method as asked in the \textit{Énoncé}. To do so, we create the method \textit{conditionalExpression}. This method invokes the lower level, \textit{conditionalAndExpression} and if it scans a QM token, create an \textit{assignmentExpression}, check whether there is a COLON token, \textit{recursively} call itself and return a new JConditionalStatement with the previous created parameters.\\
+A JConditionalStatement is a Statement with the following parameters:
+\begin{itemize}
+\item{JExpression \textit{condition} : the condition to test}
+\item{JExpression \textit{then part} : the expression to branch to if \textit{condition} is true}
+\item{JExpression \textit{else part} : the expression to branch to if \textit{condition} is false (this expression can be another JConditionalExpression)}
+\end{itemize}
+\subsection{Difference between the handwritten scanner an the other one}
+\subsection{Tests}
+We test tricky case as follow :
+\begin{itemize}
+\item{Comparison in the condition}
+\item{Boolean in the condition}
+\item{Conditional expression with conditional expression in the else part}
+\item{...}
+\end{itemize}
+\section{For Statement}
+\subsection{Implementation}
+Here we have to support two type of for loop ;
+\begin{enumerate}
+\item{The basic one : for ( [forInit] ; [expression] ; [forUpdate] ) statement}
+\item{The enhanced one : for ( FormalParameter : Expression ) Statement}
+\end{enumerate}
+
+For the first one, we have to create a forInit and a forUpdate methode to parse the concerned expression. Concerning forInit, we have to handle the \textit{final} modifier and multiples variable declarations. Concerning forUpdate, we just have to handle multiple statements. Notice that we have to parse the \textit{final} modifier in the variableDeclaration function and that modifiers are already supported by the class. However, we have to add \textit{final} modifier support into the JFormalParameter class in order to parse it when encountered.
+
+\subsection{Difference between the handwritten scanner an the other one}
+In j--.jj we have to use \textit{LOOKAHEAD(PATTERN)} in order distinguish the two for loops.  
+\subsection{Tests}
+\begin{itemize}
+\item{Final modifier in \textit{forInit}/\textit{formalParameter}}
+\item{Multiple variable declaration in \textit{forInit}}
+\item{Multiple statement in \textit{ForUpdate}}
+\item{Empty \textit{basicForLoop} (for(;;;))}
+\end{itemize}
+
+\section{Conclusion}
+\end{document}
