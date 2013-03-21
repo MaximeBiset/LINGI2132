@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class JBasicForStatement extends JStatement {
 	
-	ArrayList<JStatement> forInit;
+	ArrayList<JAST> forInit;
 	ArrayList<JStatement> forUpdate;
 	JExpression expression;
 	JStatement statement;
 	
 
-	protected JBasicForStatement(int line, ArrayList<JStatement> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
+	protected JBasicForStatement(int line, ArrayList<JAST> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
 	{
 		super(line);
 		this.forInit = forInit;
@@ -20,25 +20,19 @@ public class JBasicForStatement extends JStatement {
 		// TODO Auto-generated constructor stub
 	}
 
+	@Override
 	public JAST analyze(Context context) {
-		for (JStatement js : forInit)
-			js.analyze(context);
-		
-		if (expression != null)
-			expression.analyze(context);
-		
-		for (JStatement js : forUpdate) 
-			js.analyze(context);
-		
-		statement.analyze(context);
-		return this;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
+	@Override
 	public void codegen(CLEmitter output) {
-		
+		// TODO Auto-generated method stub
 
 	}
 
+	@Override
 	public void writeToStdOut(PrettyPrinter p)
 	{
         p.printf("<JForStatement line=\"%d\">\n", line());

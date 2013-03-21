@@ -441,7 +441,7 @@ private ArrayList<String> modifiers(): {
                 reportParserError( "Repeated modifier: abstract" );
             }
             scannedABSTRACT = true;
-        }
+        } |
         <FINAL>
         {
             mods.add("final");
@@ -720,9 +720,9 @@ private JStatement statement(): {
         { statement = new JReturnStatement( line, expr ); } |
         <SEMI> 
         { statement = new JEmptyStatement( line ); } |
-        LOOKAHEAD(<FOR> <LPAREN> formalParameter() <COLON> expression() <RPAREN>) 
+        LOOKAHEAD(<FOR> <LPAREN> formalParameter() <COLON> expression() <RPAREN>) {line = token.beginLine; }
             statement = enhancedForStatement() |
-        LOOKAHEAD(<FOR> <LPAREN> [forInit()] <SEMI>)
+        LOOKAHEAD(<FOR> <LPAREN> [forInit()]) {line = token.beginLine;}
             statement = basicForStatement()|
         // Must be a statementExpression
         statement = statementExpression() 
@@ -773,7 +773,7 @@ private JStatement enhancedForStatement(): {
  */
 private JStatement basicForStatement(): {
     int line = 0;
-    ArrayList<JStatement> forInit = new ArrayList<JStatement>();
+    ArrayList<JAST> forInit = new ArrayList<JAST>();
     JExpression expr = null;
     JStatement statement = null;
     ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
@@ -807,8 +807,8 @@ private JStatement basicForStatement(): {
  *                          | [final] type variableDeclarators
  */
 
-private ArrayList<JStatement> forInit(): {
-    ArrayList<JStatement> init = new ArrayList<JStatement>();
+private ArrayList<JAST> forInit(): {
+    ArrayList<JAST> init = new ArrayList<JAST>();
     JStatement statement = null;
     JVariableDeclaration varDecl = null;
 }
@@ -830,6 +830,8 @@ private ArrayList<JStatement> forInit(): {
             )*
             <SEMI>
         )
+        |
+        <SEMI>
     }
     catch (ParseException e) {
         recoverFromError( new int[] { SEMI, EOF }, e);

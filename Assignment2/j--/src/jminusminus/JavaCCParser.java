@@ -162,6 +162,7 @@ class JavaCCParser implements JavaCCParserConstants {
         case PROTECTED:
         case PUBLIC:
         case STATIC:
+        case FINAL:
           ;
           break;
         default:
@@ -242,6 +243,7 @@ class JavaCCParser implements JavaCCParserConstants {
         case PROTECTED:
         case PUBLIC:
         case STATIC:
+        case FINAL:
           ;
           break;
         default:
@@ -297,6 +299,8 @@ class JavaCCParser implements JavaCCParserConstants {
                 reportParserError( "Repeated modifier: abstract" );
             }
             scannedABSTRACT = true;
+          break;
+        case FINAL:
           jj_consume_token(FINAL);
             mods.add("final");
             if (scannedFINAL ) {
@@ -363,6 +367,7 @@ class JavaCCParser implements JavaCCParserConstants {
         case PUBLIC:
         case STATIC:
         case VOID:
+        case FINAL:
         case IDENTIFIER:
           ;
           break;
@@ -624,8 +629,10 @@ class JavaCCParser implements JavaCCParserConstants {
       default:
         jj_la1[14] = jj_gen;
         if (jj_2_5(2147483647)) {
+                                                                                   line = token.beginLine;
           statement = enhancedForStatement();
         } else if (jj_2_6(2147483647)) {
+                                               line = token.beginLine;
           statement = basicForStatement();
         } else {
           switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -684,7 +691,7 @@ class JavaCCParser implements JavaCCParserConstants {
 
   final private JStatement basicForStatement() throws ParseException {
     int line = 0;
-    ArrayList<JStatement> forInit = new ArrayList<JStatement>();
+    ArrayList<JAST> forInit = new ArrayList<JAST>();
     JExpression expr = null;
     JStatement statement = null;
     ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
@@ -706,6 +713,7 @@ class JavaCCParser implements JavaCCParserConstants {
       case LNOT:
       case MINUS:
       case LPAREN:
+      case SEMI:
       case IDENTIFIER:
       case INT_LITERAL:
       case CHAR_LITERAL:
@@ -769,8 +777,8 @@ class JavaCCParser implements JavaCCParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final private ArrayList<JStatement> forInit() throws ParseException {
-    ArrayList<JStatement> init = new ArrayList<JStatement>();
+  final private ArrayList<JAST> forInit() throws ParseException {
+    ArrayList<JAST> init = new ArrayList<JAST>();
     JStatement statement = null;
     JVariableDeclaration varDecl = null;
     try {
@@ -796,8 +804,15 @@ class JavaCCParser implements JavaCCParserConstants {
         }
         jj_consume_token(SEMI);
       } else {
-        jj_consume_token(-1);
-        throw new ParseException();
+        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case SEMI:
+          jj_consume_token(SEMI);
+          break;
+        default:
+          jj_la1[20] = jj_gen;
+          jj_consume_token(-1);
+          throw new ParseException();
+        }
       }
     } catch (ParseException e) {
         recoverFromError( new int[] { SEMI, EOF }, e);
@@ -819,7 +834,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[20] = jj_gen;
+          jj_la1[21] = jj_gen;
           break label_8;
         }
         jj_consume_token(COMMA);
@@ -854,7 +869,7 @@ class JavaCCParser implements JavaCCParserConstants {
             ;
             break;
           default:
-            jj_la1[21] = jj_gen;
+            jj_la1[22] = jj_gen;
             break label_9;
           }
           jj_consume_token(COMMA);
@@ -863,7 +878,7 @@ class JavaCCParser implements JavaCCParserConstants {
         }
         break;
       default:
-        jj_la1[22] = jj_gen;
+        jj_la1[23] = jj_gen;
         ;
       }
       jj_consume_token(RPAREN);
@@ -887,7 +902,7 @@ class JavaCCParser implements JavaCCParserConstants {
                mods.add( "final" );
         break;
       default:
-        jj_la1[23] = jj_gen;
+        jj_la1[24] = jj_gen;
         ;
       }
       type = type();
@@ -926,7 +941,7 @@ class JavaCCParser implements JavaCCParserConstants {
               mods.add( "final" ) ;
         break;
       default:
-        jj_la1[24] = jj_gen;
+        jj_la1[25] = jj_gen;
         ;
       }
       type = type();
@@ -954,7 +969,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[25] = jj_gen;
+          jj_la1[26] = jj_gen;
           break label_10;
         }
         jj_consume_token(COMMA);
@@ -981,7 +996,7 @@ class JavaCCParser implements JavaCCParserConstants {
         initial = variableInitializer(type);
         break;
       default:
-        jj_la1[26] = jj_gen;
+        jj_la1[27] = jj_gen;
         ;
       }
     } catch (ParseException e) {
@@ -1015,7 +1030,7 @@ class JavaCCParser implements JavaCCParserConstants {
         initializer = expression();
         break;
       default:
-        jj_la1[27] = jj_gen;
+        jj_la1[28] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1058,7 +1073,7 @@ class JavaCCParser implements JavaCCParserConstants {
             ;
             break;
           default:
-            jj_la1[28] = jj_gen;
+            jj_la1[29] = jj_gen;
             break label_11;
           }
           jj_consume_token(COMMA);
@@ -1067,7 +1082,7 @@ class JavaCCParser implements JavaCCParserConstants {
         }
         break;
       default:
-        jj_la1[29] = jj_gen;
+        jj_la1[30] = jj_gen;
         ;
       }
       jj_consume_token(RCURLY);
@@ -1107,7 +1122,7 @@ class JavaCCParser implements JavaCCParserConstants {
             ;
             break;
           default:
-            jj_la1[30] = jj_gen;
+            jj_la1[31] = jj_gen;
             break label_12;
           }
           jj_consume_token(COMMA);
@@ -1116,7 +1131,7 @@ class JavaCCParser implements JavaCCParserConstants {
         }
         break;
       default:
-        jj_la1[31] = jj_gen;
+        jj_la1[32] = jj_gen;
         ;
       }
       jj_consume_token(RPAREN);
@@ -1140,7 +1155,7 @@ class JavaCCParser implements JavaCCParserConstants {
           type = basicType();
           break;
         default:
-          jj_la1[32] = jj_gen;
+          jj_la1[33] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
@@ -1169,7 +1184,7 @@ class JavaCCParser implements JavaCCParserConstants {
                 type = Type.INT;
         break;
       default:
-        jj_la1[33] = jj_gen;
+        jj_la1[34] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1198,7 +1213,7 @@ class JavaCCParser implements JavaCCParserConstants {
             ;
             break;
           default:
-            jj_la1[34] = jj_gen;
+            jj_la1[35] = jj_gen;
             break label_13;
           }
           jj_consume_token(LBRACK);
@@ -1215,7 +1230,7 @@ class JavaCCParser implements JavaCCParserConstants {
             ;
             break;
           default:
-            jj_la1[35] = jj_gen;
+            jj_la1[36] = jj_gen;
             break label_14;
           }
           jj_consume_token(LBRACK);
@@ -1224,7 +1239,7 @@ class JavaCCParser implements JavaCCParserConstants {
         }
         break;
       default:
-        jj_la1[36] = jj_gen;
+        jj_la1[37] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1295,13 +1310,13 @@ class JavaCCParser implements JavaCCParserConstants {
               lhs = new JPlusAssignOp( line, lhs, rhs );
           break;
         default:
-          jj_la1[37] = jj_gen;
+          jj_la1[38] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
         break;
       default:
-        jj_la1[38] = jj_gen;
+        jj_la1[39] = jj_gen;
         ;
       }
     } catch (ParseException e) {
@@ -1328,7 +1343,7 @@ class JavaCCParser implements JavaCCParserConstants {
               lhs = new JConditionalExpression( line, lhs, thenPart, elsePart );
         break;
       default:
-        jj_la1[39] = jj_gen;
+        jj_la1[40] = jj_gen;
         ;
       }
     } catch (ParseException e) {
@@ -1351,7 +1366,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[40] = jj_gen;
+          jj_la1[41] = jj_gen;
           break label_15;
         }
         jj_consume_token(LAND);
@@ -1378,7 +1393,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[41] = jj_gen;
+          jj_la1[42] = jj_gen;
           break label_16;
         }
         jj_consume_token(EQUAL);
@@ -1420,13 +1435,13 @@ class JavaCCParser implements JavaCCParserConstants {
               lhs = new JInstanceOfOp( line, lhs, type );
           break;
         default:
-          jj_la1[42] = jj_gen;
+          jj_la1[43] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
         break;
       default:
-        jj_la1[43] = jj_gen;
+        jj_la1[44] = jj_gen;
         ;
       }
     } catch (ParseException e) {
@@ -1450,7 +1465,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[44] = jj_gen;
+          jj_la1[45] = jj_gen;
           break label_17;
         }
         switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -1465,7 +1480,7 @@ class JavaCCParser implements JavaCCParserConstants {
               lhs = new JSubtractOp( line, lhs, rhs );
           break;
         default:
-          jj_la1[45] = jj_gen;
+          jj_la1[46] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
@@ -1490,7 +1505,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[46] = jj_gen;
+          jj_la1[47] = jj_gen;
           break label_18;
         }
         jj_consume_token(STAR);
@@ -1536,7 +1551,7 @@ class JavaCCParser implements JavaCCParserConstants {
         expr = simpleUnaryExpression();
         break;
       default:
-        jj_la1[47] = jj_gen;
+        jj_la1[48] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1560,7 +1575,7 @@ class JavaCCParser implements JavaCCParserConstants {
           expr = new JLogicalNotOp( line, unaryExpr );
         break;
       default:
-        jj_la1[48] = jj_gen;
+        jj_la1[49] = jj_gen;
         if (jj_2_10(2147483647)) {
           jj_consume_token(LPAREN);
                    line = token.beginLine;
@@ -1591,7 +1606,7 @@ class JavaCCParser implements JavaCCParserConstants {
             expr = postfixExpression();
             break;
           default:
-            jj_la1[49] = jj_gen;
+            jj_la1[50] = jj_gen;
             jj_consume_token(-1);
             throw new ParseException();
           }
@@ -1618,7 +1633,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[50] = jj_gen;
+          jj_la1[51] = jj_gen;
           break label_19;
         }
         primaryExpr = selector(primaryExpr);
@@ -1630,7 +1645,7 @@ class JavaCCParser implements JavaCCParserConstants {
           ;
           break;
         default:
-          jj_la1[51] = jj_gen;
+          jj_la1[52] = jj_gen;
           break label_20;
         }
         jj_consume_token(DEC);
@@ -1665,7 +1680,7 @@ class JavaCCParser implements JavaCCParserConstants {
                   ambiguousPart( id ), id.simpleName(), args );
           break;
         default:
-          jj_la1[52] = jj_gen;
+          jj_la1[53] = jj_gen;
           ;
         }
         break;
@@ -1676,7 +1691,7 @@ class JavaCCParser implements JavaCCParserConstants {
         jj_consume_token(RBRACK);
         break;
       default:
-        jj_la1[53] = jj_gen;
+        jj_la1[54] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1707,7 +1722,7 @@ class JavaCCParser implements JavaCCParserConstants {
               expr = new JThisConstruction( line, args );
           break;
         default:
-          jj_la1[54] = jj_gen;
+          jj_la1[55] = jj_gen;
           ;
         }
         break;
@@ -1732,12 +1747,12 @@ class JavaCCParser implements JavaCCParserConstants {
                       null, token.image, args );
             break;
           default:
-            jj_la1[55] = jj_gen;
+            jj_la1[56] = jj_gen;
             ;
           }
           break;
         default:
-          jj_la1[56] = jj_gen;
+          jj_la1[57] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
@@ -1774,12 +1789,12 @@ class JavaCCParser implements JavaCCParserConstants {
                   ambiguousPart( id ), id.simpleName(), args );
           break;
         default:
-          jj_la1[57] = jj_gen;
+          jj_la1[58] = jj_gen;
           ;
         }
         break;
       default:
-        jj_la1[58] = jj_gen;
+        jj_la1[59] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -1814,7 +1829,7 @@ class JavaCCParser implements JavaCCParserConstants {
           type = qualifiedIdentifier();
           break;
         default:
-          jj_la1[59] = jj_gen;
+          jj_la1[60] = jj_gen;
           jj_consume_token(-1);
           throw new ParseException();
         }
@@ -1823,7 +1838,7 @@ class JavaCCParser implements JavaCCParserConstants {
           expr = new JNewOp( line, type, args );
         break;
       default:
-        jj_la1[61] = jj_gen;
+        jj_la1[62] = jj_gen;
         if (jj_2_13(2147483647)) {
           expr = newArrayDeclarator(type);
         } else {
@@ -1848,12 +1863,12 @@ class JavaCCParser implements JavaCCParserConstants {
               expr = arrayInitializer(expected);
               break;
             default:
-              jj_la1[60] = jj_gen;
+              jj_la1[61] = jj_gen;
               ;
             }
             break;
           default:
-            jj_la1[62] = jj_gen;
+            jj_la1[63] = jj_gen;
             jj_consume_token(-1);
             throw new ParseException();
           }
@@ -1937,7 +1952,7 @@ class JavaCCParser implements JavaCCParserConstants {
           expr = new JLiteralNull( token.beginLine );
         break;
       default:
-        jj_la1[63] = jj_gen;
+        jj_la1[64] = jj_gen;
         jj_consume_token(-1);
         throw new ParseException();
       }
@@ -2054,13 +2069,6 @@ class JavaCCParser implements JavaCCParserConstants {
     finally { jj_save(14, xla); }
   }
 
-  final private boolean jj_3R_102() {
-    if (jj_scan_token(LPAREN)) return true;
-    if (jj_3R_27()) return true;
-    if (jj_scan_token(RPAREN)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_103() {
     if (jj_3R_111()) return true;
     return false;
@@ -2083,17 +2091,17 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_28() {
-    if (jj_3R_38()) return true;
-    return false;
-  }
-
   final private boolean jj_3R_111() {
     if (jj_scan_token(LPAREN)) return true;
     Token xsp;
     xsp = jj_scanpos;
     if (jj_3R_123()) jj_scanpos = xsp;
     if (jj_scan_token(RPAREN)) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_28() {
+    if (jj_3R_38()) return true;
     return false;
   }
 
@@ -2150,16 +2158,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_6() {
-    if (jj_scan_token(FOR)) return true;
-    if (jj_scan_token(LPAREN)) return true;
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_28()) jj_scanpos = xsp;
-    if (jj_scan_token(SEMI)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_36() {
     if (jj_scan_token(FINAL)) return true;
     return false;
@@ -2168,6 +2166,15 @@ class JavaCCParser implements JavaCCParserConstants {
   final private boolean jj_3R_78() {
     if (jj_scan_token(COMMA)) return true;
     if (jj_3R_60()) return true;
+    return false;
+  }
+
+  final private boolean jj_3_6() {
+    if (jj_scan_token(FOR)) return true;
+    if (jj_scan_token(LPAREN)) return true;
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_28()) jj_scanpos = xsp;
     return false;
   }
 
@@ -2221,20 +2228,14 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_4() {
-    if (jj_scan_token(ELSE)) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_61() {
-    if (jj_scan_token(DOT)) return true;
-    if (jj_scan_token(IDENTIFIER)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_81() {
     if (jj_scan_token(PLUS)) return true;
     if (jj_3R_73()) return true;
+    return false;
+  }
+
+  final private boolean jj_3_4() {
+    if (jj_scan_token(ELSE)) return true;
     return false;
   }
 
@@ -2250,6 +2251,12 @@ class JavaCCParser implements JavaCCParserConstants {
 
   final private boolean jj_3R_115() {
     if (jj_scan_token(STRING_LITERAL)) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_61() {
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(IDENTIFIER)) return true;
     return false;
   }
 
@@ -2465,15 +2472,15 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_3() {
-    if (jj_3R_25()) return true;
-    if (jj_scan_token(IDENTIFIER)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_50() {
     if (jj_scan_token(ASSIGN)) return true;
     if (jj_3R_60()) return true;
+    return false;
+  }
+
+  final private boolean jj_3_3() {
+    if (jj_3R_25()) return true;
+    if (jj_scan_token(IDENTIFIER)) return true;
     return false;
   }
 
@@ -2557,20 +2564,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_59() {
-    if (jj_scan_token(COMMA)) return true;
-    if (jj_3R_30()) return true;
-    return false;
-  }
-
   final private boolean jj_3R_127() {
     if (jj_scan_token(LBRACK)) return true;
     if (jj_scan_token(RBRACK)) return true;
     return false;
   }
 
-  final private boolean jj_3_8() {
-    if (jj_3R_30()) return true;
+  final private boolean jj_3R_59() {
     if (jj_scan_token(COMMA)) return true;
     if (jj_3R_30()) return true;
     return false;
@@ -2580,6 +2580,13 @@ class JavaCCParser implements JavaCCParserConstants {
     if (jj_scan_token(LPAREN)) return true;
     if (jj_3R_33()) return true;
     if (jj_scan_token(RPAREN)) return true;
+    return false;
+  }
+
+  final private boolean jj_3_8() {
+    if (jj_3R_30()) return true;
+    if (jj_scan_token(COMMA)) return true;
+    if (jj_3R_30()) return true;
     return false;
   }
 
@@ -2621,15 +2628,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_7() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_scan_token(38)) jj_scanpos = xsp;
-    if (jj_3R_25()) return true;
-    if (jj_3R_29()) return true;
-    return false;
-  }
-
   final private boolean jj_3R_40() {
     if (jj_scan_token(COMMA)) return true;
     if (jj_3R_39()) return true;
@@ -2645,6 +2643,15 @@ class JavaCCParser implements JavaCCParserConstants {
 
   final private boolean jj_3R_120() {
     if (jj_3R_126()) return true;
+    return false;
+  }
+
+  final private boolean jj_3_7() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_scan_token(38)) jj_scanpos = xsp;
+    if (jj_3R_25()) return true;
+    if (jj_3R_29()) return true;
     return false;
   }
 
@@ -2666,17 +2673,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_49() {
-    if (jj_3R_30()) return true;
-    Token xsp;
-    while (true) {
-      xsp = jj_scanpos;
-      if (jj_3R_59()) { jj_scanpos = xsp; break; }
-    }
-    if (jj_scan_token(SEMI)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_119() {
     Token xsp;
     xsp = jj_scanpos;
@@ -2685,6 +2681,17 @@ class JavaCCParser implements JavaCCParserConstants {
     if (jj_3R_125()) return true;
     }
     if (jj_3R_111()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_49() {
+    if (jj_3R_30()) return true;
+    Token xsp;
+    while (true) {
+      xsp = jj_scanpos;
+      if (jj_3R_59()) { jj_scanpos = xsp; break; }
+    }
+    if (jj_scan_token(SEMI)) return true;
     return false;
   }
 
@@ -2709,11 +2716,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_48() {
-    if (jj_3R_58()) return true;
-    return false;
-  }
-
   final private boolean jj_3R_29() {
     if (jj_3R_39()) return true;
     Token xsp;
@@ -2721,6 +2723,11 @@ class JavaCCParser implements JavaCCParserConstants {
       xsp = jj_scanpos;
       if (jj_3R_40()) { jj_scanpos = xsp; break; }
     }
+    return false;
+  }
+
+  final private boolean jj_3R_48() {
+    if (jj_3R_58()) return true;
     return false;
   }
 
@@ -2747,16 +2754,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_38() {
-    Token xsp;
-    xsp = jj_scanpos;
-    if (jj_3R_48()) {
-    jj_scanpos = xsp;
-    if (jj_3R_49()) return true;
-    }
-    return false;
-  }
-
   final private boolean jj_3R_41() {
     if (jj_scan_token(BOOLEAN)) return true;
     return false;
@@ -2765,6 +2762,19 @@ class JavaCCParser implements JavaCCParserConstants {
   final private boolean jj_3R_63() {
     if (jj_scan_token(LAND)) return true;
     if (jj_3R_62()) return true;
+    return false;
+  }
+
+  final private boolean jj_3R_38() {
+    Token xsp;
+    xsp = jj_scanpos;
+    if (jj_3R_48()) {
+    jj_scanpos = xsp;
+    if (jj_3R_49()) {
+    jj_scanpos = xsp;
+    if (jj_scan_token(59)) return true;
+    }
+    }
     return false;
   }
 
@@ -2827,13 +2837,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3R_24() {
-    if (jj_3R_25()) return true;
+  final private boolean jj_3R_35() {
+    if (jj_3R_32()) return true;
     return false;
   }
 
-  final private boolean jj_3R_35() {
-    if (jj_3R_32()) return true;
+  final private boolean jj_3R_24() {
+    if (jj_3R_25()) return true;
     return false;
   }
 
@@ -2881,6 +2891,12 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
+  final private boolean jj_3R_83() {
+    if (jj_scan_token(INC)) return true;
+    if (jj_3R_79()) return true;
+    return false;
+  }
+
   final private boolean jj_3_2() {
     Token xsp;
     xsp = jj_scanpos;
@@ -2890,12 +2906,6 @@ class JavaCCParser implements JavaCCParserConstants {
     }
     if (jj_scan_token(IDENTIFIER)) return true;
     if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
-  final private boolean jj_3R_83() {
-    if (jj_scan_token(INC)) return true;
-    if (jj_3R_79()) return true;
     return false;
   }
 
@@ -2950,12 +2960,6 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
-  final private boolean jj_3_1() {
-    if (jj_scan_token(IDENTIFIER)) return true;
-    if (jj_scan_token(LPAREN)) return true;
-    return false;
-  }
-
   final private boolean jj_3R_123() {
     if (jj_3R_27()) return true;
     Token xsp;
@@ -2963,6 +2967,12 @@ class JavaCCParser implements JavaCCParserConstants {
       xsp = jj_scanpos;
       if (jj_3R_129()) { jj_scanpos = xsp; break; }
     }
+    return false;
+  }
+
+  final private boolean jj_3_1() {
+    if (jj_scan_token(IDENTIFIER)) return true;
+    if (jj_scan_token(LPAREN)) return true;
     return false;
   }
 
@@ -3002,6 +3012,13 @@ class JavaCCParser implements JavaCCParserConstants {
     return false;
   }
 
+  final private boolean jj_3R_102() {
+    if (jj_scan_token(LPAREN)) return true;
+    if (jj_3R_27()) return true;
+    if (jj_scan_token(RPAREN)) return true;
+    return false;
+  }
+
   public JavaCCParserTokenManager token_source;
   SimpleCharStream jj_input_stream;
   public Token token, jj_nt;
@@ -3011,7 +3028,7 @@ class JavaCCParser implements JavaCCParserConstants {
   public boolean lookingAhead = false;
   private boolean jj_semLA;
   private int jj_gen;
-  final private int[] jj_la1 = new int[64];
+  final private int[] jj_la1 = new int[65];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static private int[] jj_la1_2;
@@ -3021,13 +3038,13 @@ class JavaCCParser implements JavaCCParserConstants {
       jj_la1_2();
    }
    private static void jj_la1_0() {
-      jj_la1_0 = new int[] {0x8000000,0x400000,0x70024000,0x0,0x70004000,0x70004000,0x80000,0x7101c000,0x1018000,0x0,0x1018000,0x87318000,0x86300000,0x6100000,0x80200000,0x6100000,0x7118000,0x6100000,0x6100000,0x0,0x0,0x0,0x1018000,0x0,0x0,0x0,0x0,0x6100000,0x0,0x6100000,0x0,0x6100000,0x1018000,0x1018000,0x0,0x0,0x1018000,0x0,0x0,0x0,0x0,0x0,0x800000,0x800000,0x0,0x0,0x0,0x6100000,0x0,0x6100000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6100000,0x1018000,0x0,0x1018000,0x0,0x4100000,};
+      jj_la1_0 = new int[] {0x8000000,0x400000,0x70024000,0x0,0x70004000,0x70004000,0x80000,0x7101c000,0x1018000,0x0,0x1018000,0x87318000,0x86300000,0x6100000,0x80200000,0x6100000,0x7118000,0x6100000,0x6100000,0x0,0x0,0x0,0x0,0x1018000,0x0,0x0,0x0,0x0,0x6100000,0x0,0x6100000,0x0,0x6100000,0x1018000,0x1018000,0x0,0x0,0x1018000,0x0,0x0,0x0,0x0,0x0,0x800000,0x800000,0x0,0x0,0x0,0x6100000,0x0,0x6100000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6100000,0x1018000,0x0,0x1018000,0x0,0x4100000,};
    }
    private static void jj_la1_1() {
-      jj_la1_1 = new int[] {0x0,0x0,0x1,0x40000000,0x1,0x1,0x0,0x80000011,0x80000010,0x8800000,0x80000000,0x88a520ee,0x88a520ae,0x8025200e,0x8800020,0x8025200e,0x8025204e,0x8025200e,0x8025200e,0x20000000,0x20000000,0x20000000,0x80000040,0x40,0x40,0x20000000,0x200,0x80a5200e,0x20000000,0x80a5200e,0x20000000,0x8025200e,0x0,0x0,0x2000000,0x2000000,0x80000000,0x80200,0x80200,0x20000,0x4000,0x800,0x9000,0x9000,0x40100,0x40100,0x100000,0x8025200e,0x10000,0x8020000e,0x42000000,0x400,0x200000,0x42000000,0x200000,0x200000,0x40200000,0x200000,0x8020000e,0x80000000,0x800000,0x80000000,0x2000000,0x8,};
+      jj_la1_1 = new int[] {0x0,0x0,0x41,0x40000000,0x41,0x41,0x0,0x80000051,0x80000010,0x8800000,0x80000000,0x88a520ee,0x88a520ae,0x8025200e,0x8800020,0x8025200e,0x8825204e,0x8025200e,0x8025200e,0x20000000,0x8000000,0x20000000,0x20000000,0x80000040,0x40,0x40,0x20000000,0x200,0x80a5200e,0x20000000,0x80a5200e,0x20000000,0x8025200e,0x0,0x0,0x2000000,0x2000000,0x80000000,0x80200,0x80200,0x20000,0x4000,0x800,0x9000,0x9000,0x40100,0x40100,0x100000,0x8025200e,0x10000,0x8020000e,0x42000000,0x400,0x200000,0x42000000,0x200000,0x200000,0x40200000,0x200000,0x8020000e,0x80000000,0x800000,0x80000000,0x2000000,0x8,};
    }
    private static void jj_la1_2() {
-      jj_la1_2 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x38,0x38,0x0,0x38,0x38,0x38,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x38,0x0,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x0,0x0,0x0,0x38,};
+      jj_la1_2 = new int[] {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x38,0x38,0x0,0x38,0x38,0x38,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x38,0x0,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x38,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x38,0x0,0x0,0x0,0x0,0x38,};
    }
   final private JJCalls[] jj_2_rtns = new JJCalls[15];
   private boolean jj_rescan = false;
@@ -3042,7 +3059,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3055,7 +3072,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3065,7 +3082,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3075,7 +3092,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3084,7 +3101,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3093,7 +3110,7 @@ class JavaCCParser implements JavaCCParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 64; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 65; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -3212,7 +3229,7 @@ class JavaCCParser implements JavaCCParserConstants {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 64; i++) {
+    for (int i = 0; i < 65; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
