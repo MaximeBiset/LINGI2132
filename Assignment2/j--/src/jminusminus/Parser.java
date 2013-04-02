@@ -710,7 +710,7 @@ public class Parser {
 	 * </pre>
 	 * @return an AST node for an enhancedForStatement
 	 */
-	public JEnhancedForStatement enhancedForStatement()
+	public JStatement enhancedForStatement()
 	{
 		int line = scanner.token().line();
 		mustBe(LPAREN);
@@ -719,7 +719,9 @@ public class Parser {
 		JExpression expression = expression();
 		mustBe(RPAREN);
 		JStatement statement = statement();
-		return new JEnhancedForStatement(line, param, expression, statement);
+		ArrayList<JStatement> statements = new ArrayList<JStatement>();
+		statements.add(new JEnhancedForStatement(line, param, expression, statement));
+		return new JBlock(line, statements);
 		
 	}
 	
@@ -731,7 +733,7 @@ public class Parser {
 	 * @return an AST node for a basicForStatement
 	 */
 
-	public JBasicForStatement basicForStatement()
+	public JStatement basicForStatement()
 	{
 		ArrayList<JStatement> init = new ArrayList<JStatement>();
 		JExpression expr = null;
@@ -753,7 +755,9 @@ public class Parser {
 		}
 		mustBe(RPAREN);
 		JStatement statement = statement();
-		return new JBasicForStatement(line, init, expr, update, statement);
+		ArrayList<JStatement> statements = new ArrayList<JStatement>();
+		statements.add(new JBasicForStatement(line, init, expr, update, statement));
+		return new JBlock(line, statements);
 	}
 	
 	/**

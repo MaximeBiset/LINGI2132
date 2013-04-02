@@ -48,7 +48,6 @@ public class JEnhancedForStatement extends JStatement {
 		((JExpression) forUpdate.get(1)).isStatementExpression = true;
 		
 		this.basicForStatement = new JBasicForStatement(line,forInit , condition, forUpdate, statement);
-		//blah += 1;
 	}
 
 	public JStatement analyze(Context context) {
@@ -65,7 +64,7 @@ public class JEnhancedForStatement extends JStatement {
 		output.addLabel(test);
 		this.basicForStatement.getExpression().codegen(output, out, false);
 		
-		this.basicForStatement.getForUpdate().get(1).codegen(output);
+		this.basicForStatement.getForUpdate().get(1).codegen(output); // need to assign element before updating i
 		statement.codegen(output);
 		this.basicForStatement.getForUpdate().get(0).codegen(output);
 		output.addBranchInstruction(GOTO, test);

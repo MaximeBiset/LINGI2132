@@ -10,11 +10,14 @@ public class JBasicForStatement extends JStatement {
 	ArrayList<JStatement> forUpdate;
 	JExpression expression;
 	JStatement statement;
+	JBlock block;
 	
 
 	protected JBasicForStatement(int line, ArrayList<JStatement> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
 	{
 		super(line);
+		
+		
 		this.forInit = forInit;
 		this.forUpdate = forUpdate;
 		this.statement = statement;
