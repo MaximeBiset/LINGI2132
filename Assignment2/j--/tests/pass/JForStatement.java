@@ -14,15 +14,15 @@ public class JForStatement
 			System.out.println(b);
 		}
 		
-		/*for (final int j = 0; j > 0; j += 1) {
+		for (final int j = 0; j > 0; j += 1) {
 			System.out.println(j);
 		}
 		
-		for(int a,b,c,d = 0; a = 0; b += 1) {
-			System.out.println(c);
+		for(int c,d,e,f = 0; f > 0; c += 1) {
+			System.out.println(f);
 		}
 		for(;;){
 			System.out.println("blah");
-		}*/
+		}
 	}
 }

@@ -3,6 +3,7 @@ package jminusminus;
 import static jminusminus.CLConstants.GOTO;
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class JEnhancedForStatement extends JStatement {
 	
@@ -13,7 +14,6 @@ public class JEnhancedForStatement extends JStatement {
 	
 	
 	JBasicForStatement basicForStatement;
-	private int blah = 0;
 	
 	
 
@@ -28,7 +28,7 @@ public class JEnhancedForStatement extends JStatement {
 		
 		//ForInit (Iterator i + temporary variable  (...) = tab[i])
 		ArrayList<JStatement> forInit = new ArrayList<JStatement>();
-		JVariable index = new JVariable(line, "isefsefse");
+		JVariable index = new JVariable(line, "blah"+Math.random()); // need to be random
 		JVariable fparam = new JVariable(line, param.name());
 		ArrayList<JVariableDeclarator> vars = new ArrayList<JVariableDeclarator>(2);
 		vars.add(new JVariableDeclarator(line, index.name(), Type.INT, new JLiteralInt(line, "0"), index));
