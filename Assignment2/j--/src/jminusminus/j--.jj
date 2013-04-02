@@ -773,7 +773,7 @@ private JStatement enhancedForStatement(): {
  */
 private JStatement basicForStatement(): {
     int line = 0;
-    ArrayList<JAST> forInit = new ArrayList<JAST>();
+    ArrayList<JStatement> forInit = new ArrayList<JStatement>();
     JExpression expr = null;
     JStatement statement = null;
     ArrayList<JStatement> forUpdate = new ArrayList<JStatement>();
@@ -807,8 +807,8 @@ private JStatement basicForStatement(): {
  *                          | [final] type variableDeclarators
  */
 
-private ArrayList<JAST> forInit(): {
-    ArrayList<JAST> init = new ArrayList<JAST>();
+private ArrayList<JStatement> forInit(): {
+    ArrayList<JStatement> init = new ArrayList<JStatement>();
     JStatement statement = null;
     JVariableDeclaration varDecl = null;
 }

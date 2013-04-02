@@ -6,8 +6,11 @@ public class JForStatement
 {
 	public static void main(String[] args)
 	{	
-		int a = {1, 2, 3};
-		for (int i : a) {
+		int[] a = new int[3];
+		for (int i = 0; i > 3; i += 1) {
+			a[i] = 42;
+		}
+		/*for (int i : a) {
 			System.out.println(a);
 		}
 		for (final int j = 0; j > 0; j += 1) {
@@ -19,6 +22,6 @@ public class JForStatement
 		}
 		for(;;){
 			System.out.println("blah");
-		}
+		}*/
 	}
 }

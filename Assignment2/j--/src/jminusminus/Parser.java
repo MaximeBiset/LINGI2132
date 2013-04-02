@@ -733,7 +733,7 @@ public class Parser {
 
 	public JBasicForStatement basicForStatement()
 	{
-		ArrayList<JAST> init = new ArrayList<JAST>();
+		ArrayList<JStatement> init = new ArrayList<JStatement>();
 		JExpression expr = null;
 		ArrayList<JStatement> update = new ArrayList<JStatement>();
 		int line = scanner.token().line();
@@ -767,9 +767,9 @@ public class Parser {
 	 * @return an AST for a forInit
 	 */
 	
-	public ArrayList<JAST> forInit()
+	public ArrayList<JStatement> forInit()
 	{
-		ArrayList<JAST> forInit = new ArrayList<JAST>();
+		ArrayList<JStatement> forInit = new ArrayList<JStatement>();
 		if(seeLocalVariableDeclaration()) {
 			forInit.add(localVariableDeclarationStatement());
 		} else {

@@ -1,34 +1,60 @@
 package jminusminus;
 
+import static jminusminus.CLConstants.GOTO;
+
 import java.util.ArrayList;
 
 public class JBasicForStatement extends JStatement {
 	
-	ArrayList<JAST> forInit;
+	ArrayList<JStatement> forInit;
 	ArrayList<JStatement> forUpdate;
 	JExpression expression;
 	JStatement statement;
 	
 
-	protected JBasicForStatement(int line, ArrayList<JAST> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
+	protected JBasicForStatement(int line, ArrayList<JStatement> forInit, JExpression expression, ArrayList<JStatement> forUpdate, JStatement statement) 
 	{
 		super(line);
 		this.forInit = forInit;
 		this.forUpdate = forUpdate;
 		this.statement = statement;
 		this.expression = expression;
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public JAST analyze(Context context) {
-		// TODO Auto-generated method stub
-		return null;
+		for(JStatement jstatement : forInit) 
+			jstatement = (JStatement) jstatement.analyze(context);
+			
+		if(expression != null) {
+			expression = (JExpression) expression.analyze(context);
+			expression.type().mustMatchExpected(line(), Type.BOOLEAN);
+		}
+		
+		for(JStatement jstatement : forUpdate)
+			jstatement = (JStatement) jstatement.analyze(context);
+		
+		
+		statement = (JStatement) statement.analyze(context);
+		return this;
 	}
 
-	@Override
+	
 	public void codegen(CLEmitter output) {
-		// TODO Auto-generated method stub
+		for(JStatement jstatement: forInit)
+			jstatement.codegen(output);
+		
+        String test = output.createLabel();
+        String out = output.createLabel();
+        output.addLabel(test);
+        if (expression != null)
+        	expression.codegen(output, out, false);
+        
+        for(JStatement jstatement: forUpdate)
+        	jstatement.codegen(output);
+        
+        statement.codegen(output);
+        output.addBranchInstruction(GOTO, test);
+        output.addLabel(out);
 
 	}
 
