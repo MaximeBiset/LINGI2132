@@ -60,7 +60,20 @@ public class JBasicForStatement extends JStatement {
 
 	}
 
-	@Override
+	public ArrayList<JStatement> getForInit() {
+		return this.forInit;
+	}
+	public ArrayList<JStatement> getForUpdate() {
+		return this.forUpdate;
+	}
+	
+	public JExpression getExpression() {
+		return this.expression;
+	}
+	
+	public JStatement getStatement() {
+		return this.statement;
+	}
 	public void writeToStdOut(PrettyPrinter p)
 	{
         p.printf("<JForStatement line=\"%d\">\n", line());

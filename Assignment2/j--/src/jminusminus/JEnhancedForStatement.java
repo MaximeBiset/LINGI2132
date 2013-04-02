@@ -1,5 +1,7 @@
 package jminusminus;
 
+import static jminusminus.CLConstants.GOTO;
+
 import java.util.ArrayList;
 
 public class JEnhancedForStatement extends JStatement {
@@ -55,7 +57,19 @@ public class JEnhancedForStatement extends JStatement {
 	}
 
 	public void codegen(CLEmitter output) {
-        basicForStatement.codegen(output);
+		String test = output.createLabel();
+		String out  = output.createLabel();
+		for (JStatement jstatement : this.basicForStatement.getForInit()) {
+			jstatement.codegen(output);
+		}
+		output.addLabel(test);
+		this.basicForStatement.getExpression().codegen(output, out, false);
+		
+		this.basicForStatement.getForUpdate().get(1).codegen(output);
+		statement.codegen(output);
+		this.basicForStatement.getForUpdate().get(0).codegen(output);
+		output.addBranchInstruction(GOTO, test);
+		output.addLabel(out);
 	}
 
 	public void writeToStdOut(PrettyPrinter p)
