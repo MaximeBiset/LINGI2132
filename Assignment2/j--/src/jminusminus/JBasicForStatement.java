@@ -21,7 +21,7 @@ public class JBasicForStatement extends JStatement {
 		this.expression = expression;
 	}
 
-	public JAST analyze(Context context) {
+	public JStatement analyze(Context context) {
 		for(JStatement jstatement : forInit) 
 			jstatement = (JStatement) jstatement.analyze(context);
 			
@@ -40,19 +40,21 @@ public class JBasicForStatement extends JStatement {
 
 	
 	public void codegen(CLEmitter output) {
+		String test = output.createLabel();
+        String out = output.createLabel();
+        
 		for(JStatement jstatement: forInit)
 			jstatement.codegen(output);
 		
-        String test = output.createLabel();
-        String out = output.createLabel();
+        
         output.addLabel(test);
         if (expression != null)
         	expression.codegen(output, out, false);
         
+        statement.codegen(output);
         for(JStatement jstatement: forUpdate)
         	jstatement.codegen(output);
         
-        statement.codegen(output);
         output.addBranchInstruction(GOTO, test);
         output.addLabel(out);
 
