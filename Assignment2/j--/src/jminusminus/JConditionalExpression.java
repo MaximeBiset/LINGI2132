@@ -17,7 +17,6 @@ public class JConditionalExpression extends JExpression {
 		this.elsePart = elsePart;
 	}
 
-	@Override
 	public JExpression analyze(Context context) 
 	{	
 		condition = (JExpression)condition.analyze(context);
@@ -29,17 +28,16 @@ public class JConditionalExpression extends JExpression {
 		return this;
 	}
 
-	@Override
 	public void codegen(CLEmitter output) 
 	{	
         String elseLabel = output.createLabel();
-	String endLabel = output.createLabel();
-	condition.codegen(output, elseLabel, false);
-	thenPart.codegen(output);
-	output.addBranchInstruction(GOTO, endLabel);
-	output.addLabel(elseLabel);
-	elsePart.codegen(output);
-	output.addLabel(endLabel);
+		String endLabel = output.createLabel();
+		condition.codegen(output, elseLabel, false);
+		thenPart.codegen(output);
+		output.addBranchInstruction(GOTO, endLabel);
+		output.addLabel(elseLabel);
+		elsePart.codegen(output);
+		output.addLabel(endLabel);
 	}
 
 	public void writeToStdOut(PrettyPrinter p)

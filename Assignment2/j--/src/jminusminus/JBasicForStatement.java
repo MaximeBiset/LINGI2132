@@ -25,8 +25,9 @@ public class JBasicForStatement extends JStatement {
 	}
 
 	public JStatement analyze(Context context) {
-		for(JStatement jstatement : forInit) 
+		for(JStatement jstatement : forInit) {
 			jstatement = (JStatement) jstatement.analyze(context);
+		}
 			
 		if(expression != null) {
 			expression = (JExpression) expression.analyze(context);

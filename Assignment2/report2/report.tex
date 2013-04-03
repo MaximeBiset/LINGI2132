@@ -1,0 +1,39 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Julien De Coster, Xavier Crochet}
+\title{LINGI2132 Assignement 3 report}
+\begin{document}
+\maketitle
+\section{Conditional Expression}
+\subsection{Implementation}
+Quite straightforward here, analyze the parameters of the \textit{JConditional} expression, check whether the expression parameter is a boolean and that the two others are from the same type. 
+Then, generate the code corresponding to the ternary op. Notice that we use the \textit{GOTO} instruction in the branch instruction.
+\subsection{Tests}
+As always, test tricky cases such as
+\begin{itemize}
+\item{Recursive \textit{JConditionalExpression}}
+\item{Ones with assignment in the parameters (to test implicit conversion)}
+\end{itemize}
+\section{For Statement}
+\subsection{Basic}
+Because of the grammar of the statement, we have to check in the analyze function whether each parameter (\textit{forInit}, \textit{forUpdate}, \textit{forUpdate}) exists and analyze it accordingly. For the codgen part, we have to generate the code for each \textit{AST} and don't forget to add, after the statement code generation,  the \textit{GOTO} jump instruction to go to the test expression once gain. 
+\subsection{Enhanced}
+Here, i decided to translate the Enhanced loop into a basic one. It's quite simple, we just have to create a basic for with
+\begin{itemize}
+\item{Two instructions in the \textit{forInit} part\; the first initializing the integer we use to iter in the array, the second initializing the element at the index \textit{i} of the array.}
+\item{A test to check if we are still in the range of the array}
+\item{Two instructions in the \textit{forUpdate} part\; the update of the two \textit{forInit} variables.}
+\end{itemize}
+\subsection{Tests}
+We tested \begin{itemize}
+\item{If the scope of the declared variable (in the foor loop) is respected}
+\item{Empty basic for loops}
+\item{Nasty basic for loops full of statements in the \textit{forInit} and \textit{forUpdate} part}
+\item{...}
+\end{itemize}
+\section{What does not work}
+The final modifier compile but is not implemented. One can easily add a final modifier in the \textit{forInit} part of the for loop and still update it in the \textit{forpdate} part. I couldn't find a proper way to support it and refuse myself to write dirty code to support it.  
+\end{document}

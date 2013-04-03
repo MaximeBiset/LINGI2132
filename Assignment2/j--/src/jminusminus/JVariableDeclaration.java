@@ -95,7 +95,7 @@ class JVariableDeclaration extends JStatement {
         }
         return this;
     }
-
+ 
     /**
      * Local variable initializations (rewritten as assignments in analyze())
      * are generated here.
@@ -139,5 +139,6 @@ class JVariableDeclaration extends JStatement {
         p.indentLeft();
         p.println("</JVariableDeclaration>");
     }
+
 
 }

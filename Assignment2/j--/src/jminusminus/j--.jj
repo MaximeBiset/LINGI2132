@@ -761,7 +761,12 @@ private JStatement enhancedForStatement(): {
     catch ( ParseException e ) {
         recoverFromError( new int[] { SEMI, EOF}, e);
     }
-    {return statement; }
+
+    {
+    ArrayList<JStatement> statements = new ArrayList<JStatement>();
+    statements.add(statement);
+    JBlock block = new JBlock( line, statements);
+    return block; }
 }
 
 /**
@@ -799,7 +804,11 @@ private JStatement basicForStatement(): {
     catch ( ParseException e ) {
         recoverFromError( new int[] { SEMI, EOF}, e);
     }
-    {return statement; }
+    {
+    ArrayList<JStatement> statements = new ArrayList<JStatement>();
+    statements.add(statement);
+    JBlock block = new JBlock( line, statements);
+    return block; }
 }
 /**
  * Parse a forInit Statement
